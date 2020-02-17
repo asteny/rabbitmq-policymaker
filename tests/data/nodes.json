@@ -1,0 +1,65 @@
+{
+ "rabbit@rabbit-dc1-1": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc1-2": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc1-3": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc2-1": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc2-2": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc2-3": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc3-1": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc3-2": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ },
+ "rabbit@rabbit-dc3-3": {
+  "/": null,
+  "first_vhost": null,
+  "my_app": null,
+  "second_vhost": null,
+  "some_vhost": null
+ }
+}

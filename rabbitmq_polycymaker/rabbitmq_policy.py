@@ -36,6 +36,7 @@ class RabbitData:
         self.get_vhosts = self.client.get_vhost_names()
         self.get_queues = self.client.get_queues()
         self.get_all_policies = self.client.get_all_policies()
+        self.get_nodes = self.client.get_nodes()
 
     def queues(self) -> Dict[str, List]:
         """
@@ -140,6 +141,7 @@ class RabbitData:
                     return True
             except KeyError:
                 log.exception("RabbitMQ API not ready to answer")
+                time.sleep(2)
 
     def create_policy(
             self,
@@ -185,160 +187,78 @@ class RabbitData:
         else:
             log.info("Dry Run mode: Policy body dict is %r", dict_params)
 
+    def nodes_dict(self) -> Dict[str, List]:
+        """
+        :param nodes_info_data
+        :param vhost_names list of vhosts
+        :return: dict: Key is a name of rabbit node, Value is empty list
+        """
+        temp_dict = dict.fromkeys((vhost for vhost in self.get_vhosts))
 
+        get_nodes = self.get_nodes
+        log.debug("Get nodes: %r", get_nodes)
 
+        nodes_dict = dict.fromkeys(
+            (node["name"] for node in get_nodes), temp_dict
+        )
+        log.info("Nodes info: %r", nodes_dict)
+        return nodes_dict
 
-# def nodes_dict(nodes_info_data, vhost_names: list) -> Dict[str, List]:
-#     """
-#     :param nodes_info_data
-#     :param vhost_names list of vhosts
-#     :return: dict: Key is a name of rabbit node, Value is empty list
-#     """
-#     temp_dict = dict.fromkeys((vhost for vhost in vhost_names))
-#
-#     nodes_dictionary = dict.fromkeys(
-#         (node["name"] for node in nodes_info_data), temp_dict
-#     )
-#     log.debug("Nodes info: %r", nodes_dictionary)
-#     return nodes_dictionary
-#
-#
-# def master_nodes_queues(
-#         nodes_dict: dict, vhost_names: list) -> Dict[str, Dict[str, List]]:
-#     """
-#     :param queues_data: list of dicts with all queues info
-#     :param vhost_names list of vhosts
-#     :return: dict {node_name: {vhost1: list_queues, vhost2: list_queues}
-#     """
-#
-#     master_nodes_queues_dict = {}
-#
-#     queues_data = client.get_queues()
-#     log.debug("Queues info: %r", queues_data)
-#
-#     for node in nodes_dict.keys():
-#
-#         vhost_dict = {}
-#
-#         for vhost in vhost_names:
-#             list_queues = []
-#
-#             for queue in queues_data:
-#                 name = queue["name"]
-#                 exclusive = queue["exclusive"]
-#                 auto_delete = queue["auto_delete"]
-#                 log.debug(
-#                     "Queue {}: Exclusive - {} and Auto_delete - {}".format(
-#                         name,
-#                         exclusive,
-#                         auto_delete,
-#                     )),
-#                 if all((
-#                         node == queue["node"],
-#                         queue["vhost"] == vhost,
-#                         not exclusive,
-#                         not auto_delete,
-#                 )):
-#                     list_queues.append(queue["name"])
-#
-#             log.debug("list_queues: %r", list_queues)
-#
-#             vhost_dict[vhost] = list_queues
-#             master_nodes_queues_dict[node] = vhost_dict
-#
-#     return master_nodes_queues_dict
-#
-#
-# def calculate_queues(master_nodes_queues_dict: dict) -> Dict[str, int]:
-#     """
-#     :param master_nodes_queues_dict: dict
-#     :return: dict {node1: number_queues, node2: number_queues,}
-#     """
-#
-#     calculated_dict = {}
-#
-#     for node, vhost in master_nodes_queues_dict.items():
-#         counter = sum(map(len, vhost.values()))
-#         calculated_dict[node] = counter
-#
-#     return calculated_dict
-#
-#
-# def calculate_vhost(max_master_dict: dict) -> Dict[str, int]:
-#     """
-#     :param max_master_dict:
-#     :return: dict {vhost, number_queues}
-#     """
-#     calculated_dict = {}
-#
-#     for vhost, queues in max_master_dict.items():
-#         if not queues:
-#             continue
-#         calculated_dict[vhost] = max(map(len, queues))
-#     return calculated_dict
-#
-#
-# def is_relocate(max_queues: int, min_queues: int, queue_delta: int) -> bool:
-#     """
-#     :param min_queues: int
-#     :param max_queues: int
-#     :return: bool
-#     """
-#     return max_queues - min_queues > queue_delta
-#
-#
-# def relocate_policy(
-#     queue_for_relocate: str,
-#     max_queues_vhost: str,
-#     min_queues_node: str,
-#     policy_name: str,
-# ):
-#
-#     definition_dict = {
-#         "ha-mode": "nodes",
-#         "ha-params": min_queues_node.split(" "),
-#     }
-#     dict_params = {
-#         "pattern": "{}{}{}".format("^", escape(queue_for_relocate), "$"),
-#         "definition": definition_dict,
-#         "priority": 999,
-#         "apply-to": "queues",
-#     }
-#     log.debug("Policy body dict is %r", dict_params)
-#
-#     client.create_policy(
-#         vhost=max_queues_vhost, policy_name=policy_name, **dict_params
-#     )
-#
-#
-#
-#
-#
-# def relocate_queue(
-#     client,
-#     max_master_dict: dict,
-#     max_queues_vhost: str,
-#     min_queues_node: str,
-#     sleep_time: int,
-# ):
-#
-#     queue_for_relocate = max_master_dict[max_queues_vhost][0]
-#     log.debug("Queue for relocate is %r", queue_for_relocate)
-#     log.debug("Creating relocate policy")
-#     relocate_policy(
-#         queue_for_relocate,
-#         max_queues_vhost,
-#         min_queues_node,
-#         arguments.policy_name,
-#     )
-#     time.sleep(sleep_time)
-#     client.queue_action(max_queues_vhost, queue_for_relocate, action="sync")
-#     time.sleep(sleep_time)
-#     is_queue_running(client, max_queues_vhost, queue_for_relocate)
-#     client.queue_action(max_queues_vhost, queue_for_relocate, action="sync")
-#     time.sleep(sleep_time)
-#     client.delete_policy(max_queues_vhost, arguments.policy_name)
-#     time.sleep(sleep_time)
-#     client.queue_action(max_queues_vhost, queue_for_relocate, action="sync")
-#     time.sleep(sleep_time)
-#     is_queue_running(client, max_queues_vhost, queue_for_relocate)
+    def master_nodes_queues(self, nodes_dict: Dict) -> Dict[str, Dict[str, List]]:
+        """
+        :return: dict {node_name: {vhost1: list_queues, vhost2: list_queues}
+        """
+
+        master_nodes_queues_dict = {}
+
+        queues_data = self.get_queues
+        log.debug("Queues info: %r", queues_data)
+
+        for node in nodes_dict.keys():
+
+            vhost_dict = {}
+
+            for vhost in self.get_vhosts:
+                list_queues = []
+
+                for queue in queues_data:
+                    name = queue["name"]
+                    exclusive = queue["exclusive"]
+                    auto_delete = queue["auto_delete"]
+                    log.debug(
+                        "Queue {}: Exclusive - {} and Auto_delete - {}".format(
+                            name,
+                            exclusive,
+                            auto_delete,
+                        )),
+                    if all((
+                            node == queue["node"],
+                            queue["vhost"] == vhost,
+                            not exclusive,
+                            not auto_delete,
+                    )):
+                        list_queues.append(queue["name"])
+
+                vhost_dict[vhost] = list_queues
+                master_nodes_queues_dict[node] = vhost_dict
+
+        log.info('Master nodes queues dict %r', master_nodes_queues_dict)
+        return master_nodes_queues_dict
+
+    def calculate_queues(
+        self,
+        master_nodes_queues_dict: dict
+    ) -> Dict[str, int]:
+        """
+        :param master_nodes_queues_dict: dict
+        :return: dict {node1: number_queues, node2: number_queues,}
+        """
+
+        calculated_dict = {}
+
+        for node, vhost in master_nodes_queues_dict.items():
+            counter = sum(map(len, vhost.values()))
+            calculated_dict[node] = counter
+
+        log.info("Queues on nodes: %r", calculated_dict)
+        return calculated_dict

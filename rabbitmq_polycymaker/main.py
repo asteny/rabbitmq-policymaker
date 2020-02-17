@@ -79,5 +79,12 @@ if __name__ == "__main__":
                     rabbit_info.create_policy(
                         vhost, queue, arguments.policy_groups, arguments.dry_run
                     )
+
+
+
+        nodes_dict = rabbit_info.nodes_dict()
+        master_nodes_queues = rabbit_info.master_nodes_queues(nodes_dict)
+        queues_on_nodes = rabbit_info.calculate_queues(master_nodes_queues)
+
         log.info('Sleeping for 20 seconds')
         sleep(20)
