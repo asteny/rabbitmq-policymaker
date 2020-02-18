@@ -66,26 +66,20 @@ if __name__ == "__main__":
     wait_for_client(client)
     log.debug("RabbitMQ alive")
 
-    rabbit_info = RabbitData(client)
+    rabbit_info = RabbitData(client, arguments.policy_groups, arguments.dry_run)
 
     while True:
-        queues_dict = rabbit_info.queues()
-
-        policies_dict = rabbit_info.policies()
-
-        queues_without_policy = rabbit_info.queues_without_policy()
-
-        if rabbit_info.need_a_policy():
-            for vhost, queues in queues_without_policy.items():
+        if rabbit_info.need_a_policy:
+            for vhost, queues in rabbit_info.queues_without_policy.items():
                 for queue in queues:
                     rabbit_info.create_policy(
-                        vhost, queue, arguments.policy_groups, arguments.dry_run
+                        vhost, queue,
                     )
 
         nodes_dict = rabbit_info.nodes_dict()
         master_nodes_queues = rabbit_info.master_nodes_queues(nodes_dict)
         queues_on_nodes = rabbit_info.calculate_queues(master_nodes_queues)
 
-        log.info('Sleeping for %r seconds', arguments.sleep)
+        log.info("Sleeping for %r seconds", arguments.sleep)
         sleep(arguments.sleep)
         rabbit_info.reload()

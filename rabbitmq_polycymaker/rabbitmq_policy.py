@@ -2,7 +2,6 @@
 
 import logging
 import time
-import json
 
 from re import escape
 from typing import Dict, List
@@ -17,8 +16,10 @@ def bucket(string, size):
 
 
 class RabbitData:
-    def __init__(self, client):
+    def __init__(self, client, policy_groups: Dict, dry_run: bool):
         self.client = client
+        self.policy_groups = policy_groups
+        self.dry_run = dry_run
         self.vhosts = self.client.get_vhost_names()
         self.all_queues = self.client.get_queues()
         self.all_policies = self.client.get_all_policies()
@@ -61,7 +62,7 @@ class RabbitData:
 
             queues_dict[vhost] = list_queues
 
-        log.info("All queues in vhosts: %r", queues_dict)
+        log.debug("All queues in vhosts: %r", queues_dict)
         return queues_dict
 
     def policies(self) -> Dict[str, List]:
@@ -82,9 +83,10 @@ class RabbitData:
 
             policies_dict[vhost] = list_policies
 
-        log.info("All policies in vhosts: %r", policies_dict)
+        log.debug("All policies in vhosts: %r", policies_dict)
         return policies_dict
 
+    @property
     def queues_without_policy(self) -> Dict[str, List]:
 
         queues_without_policy_dict = {}
@@ -103,13 +105,14 @@ class RabbitData:
 
         return queues_without_policy_dict
 
+    @property
     def need_a_policy(self):
         queues = []
-        for q_list in self.queues_without_policy().values():
+        for q_list in self.queues_without_policy.values():
             if len(q_list) > 0:
                 queues.append(q_list)
 
-        log.info("Queue without policy: %r", len(queues))
+        log.info("Queues without policy: %r", queues)
         return len(queues) > 0
 
     def is_queue_running(self, vhost: str, queue: str) -> bool:
@@ -126,19 +129,13 @@ class RabbitData:
                 log.exception("RabbitMQ API not ready to answer")
                 time.sleep(2)
 
-    def create_policy(
-            self,
-            vhost: str,
-            queue: str,
-            policy_groups: json,
-            dry_run: bool
-    ):
+    def create_policy(self, vhost: str, queue: str):
 
         bucket_number = bucket(
             "{}{}".format(vhost, queue),
-            len(policy_groups)
+            len(self.policy_groups)
         )
-        bucket_nodes = policy_groups.get(str(bucket_number))
+        bucket_nodes = self.policy_groups.get(str(bucket_number))
 
         rabbit_nodes = []
 
@@ -156,7 +153,7 @@ class RabbitData:
             "apply-to": "queues",
         }
 
-        if not dry_run:
+        if not self.dry_run:
             log.info("Policy body dict is %r", dict_params)
             self.client.create_policy(
                 vhost=vhost, policy_name=queue, **dict_params
@@ -168,7 +165,9 @@ class RabbitData:
                     "Policy created and queue %r in running state", queue
                 )
         else:
-            log.info("Dry Run mode: Policy body dict is %r", dict_params)
+            log.info(
+                "It's a dry run mode: Policy body dict will be %r", dict_params
+            )
 
     def nodes_dict(self) -> Dict[str, List]:
         """
@@ -184,7 +183,7 @@ class RabbitData:
         nodes_dict = dict.fromkeys(
             (node["name"] for node in nodes), temp_dict
         )
-        log.info("Nodes info: %r", nodes_dict)
+        log.debug("Nodes info: %r", nodes_dict)
         return nodes_dict
 
     def master_nodes_queues(self, nodes_dict: Dict) -> Dict[str, Dict[str, List]]:
@@ -225,7 +224,7 @@ class RabbitData:
                 vhost_dict[vhost] = list_queues
                 master_nodes_queues_dict[node] = vhost_dict
 
-        log.info('Master nodes queues dict %r', master_nodes_queues_dict)
+        log.debug('Master nodes queues dict %r', master_nodes_queues_dict)
         return master_nodes_queues_dict
 
     def calculate_queues(
