@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import json
 
 import pytest
@@ -161,10 +163,7 @@ def test_master_nodes_queues():
         DRY_RUN,
         WAIT_SLEEP
     )
-    nodes = rabbit_info.nodes_dict()
-    master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
-
-    assert master_nodes_queues == get_json(
+    assert rabbit_info.master_nodes_queues() == get_json(
         "tests/data/master_nodes_queues.json"
     )
 
@@ -177,7 +176,4 @@ def test_calculate_queues():
         DRY_RUN,
         WAIT_SLEEP
     )
-    nodes = rabbit_info.nodes_dict()
-    master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
-    calculate_queues = rabbit_info.calculate_queues(master_nodes_queues)
-    assert calculate_queues == get_json("tests/data/calculate_queues.json")
+    assert rabbit_info.calculate_queues_on_hosts() == get_json("tests/data/calculate_queues.json")

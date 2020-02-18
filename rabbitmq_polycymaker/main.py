@@ -2,7 +2,6 @@
 
 import logging
 import json
-from time import sleep
 from configargparse import ArgumentParser
 from prettylog import basic_config, LogFormat
 from yarl import URL
@@ -34,12 +33,6 @@ parser.add_argument(
     "--sleep",
     type=int,
     default=20,
-    help="Sleep seconds between run")
-
-parser.add_argument(
-    "--wait-sleep",
-    type=int,
-    default=2,
     help="Sleep seconds between rabbit API requests")
 
 parser.add_argument(
@@ -80,21 +73,14 @@ if __name__ == "__main__":
         client,
         arguments.policy_groups,
         arguments.dry_run,
-        arguments.wait_sleep
+        arguments.sleep
     )
 
-    while True:
-        if rabbit_info.need_a_policy:
-            for vhost, queues in rabbit_info.queues_without_policy.items():
-                for queue in queues:
-                    rabbit_info.create_policy(
-                        vhost, queue,
-                    )
+    if rabbit_info.need_a_policy:
+        for vhost, queues in rabbit_info.queues_without_policy.items():
+            for queue in queues:
+                rabbit_info.create_policy(
+                    vhost, queue,
+                )
 
-        nodes_dict = rabbit_info.nodes_dict()
-        master_nodes_queues = rabbit_info.master_nodes_queues(nodes_dict)
-        queues_on_nodes = rabbit_info.calculate_queues(master_nodes_queues)
-
-        log.info("Sleeping for %r seconds", arguments.sleep)
-        sleep(arguments.sleep)
-        rabbit_info.reload()
+    rabbit_info.calculate_queues_on_hosts()

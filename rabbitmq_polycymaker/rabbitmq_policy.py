@@ -23,7 +23,7 @@ class RabbitData:
         client,
         policy_groups: Dict,
         dry_run: bool,
-        wait_sleep: int
+        sleep_seconds : int
     ):
         self.client = client
         self.policy_groups = policy_groups
@@ -32,7 +32,7 @@ class RabbitData:
         self.all_queues = self.client.get_queues()
         self.all_policies = self.client.get_all_policies()
         self.nodes = self.client.get_nodes()
-        self.wait_sleep = wait_sleep
+        self.sleep_seconds = sleep_seconds
 
     def reload(self):
         self.vhosts = self.client.get_vhost_names()
@@ -131,12 +131,12 @@ class RabbitData:
                 state = self.client.get_queue(vhost, queue)["state"]
                 log.info("Queue %r has state %r", queue, state)
                 if state != RUNNING:
-                    sleep(self.wait_sleep)
+                    sleep(self.sleep_seconds)
                 else:
                     return True
             except KeyError:
                 log.exception("RabbitMQ API not ready to answer")
-                sleep(self.wait_sleep)
+                sleep(self.sleep_seconds)
 
     def create_policy(self, vhost: str, queue: str):
 
@@ -167,7 +167,7 @@ class RabbitData:
             self.client.create_policy(
                 vhost=vhost, policy_name=queue, **dict_params
             )
-            sleep(self.wait_sleep)
+            sleep(self.sleep_seconds)
 
             if self.is_queue_running(vhost, queue):
                 log.info(
@@ -195,7 +195,7 @@ class RabbitData:
         log.debug("Nodes info: %r", nodes_dict)
         return nodes_dict
 
-    def master_nodes_queues(self, nodes_dict: Dict) -> Dict[str, Dict[str, List]]:
+    def master_nodes_queues(self) -> Dict[str, Dict[str, List]]:
         """
         :return: dict {node_name: {vhost1: list_queues, vhost2: list_queues}
         """
@@ -205,7 +205,7 @@ class RabbitData:
         queues_data = self.all_queues
         log.debug("Queues info: %r", queues_data)
 
-        for node in nodes_dict.keys():
+        for node in self.nodes_dict().keys():
 
             vhost_dict = {}
 
@@ -236,18 +236,14 @@ class RabbitData:
         log.debug("Master nodes queues dict %r", master_nodes_queues_dict)
         return master_nodes_queues_dict
 
-    def calculate_queues(
-        self,
-        master_nodes_queues_dict: dict
-    ) -> Dict[str, int]:
+    def calculate_queues_on_hosts(self) -> Dict[str, int]:
         """
-        :param master_nodes_queues_dict: dict
         :return: dict {node1: number_queues, node2: number_queues,}
         """
 
         calculated_dict = {}
 
-        for node, vhost in master_nodes_queues_dict.items():
+        for node, vhost in self.master_nodes_queues().items():
             counter = sum(map(len, vhost.values()))
             calculated_dict[node] = counter
 
