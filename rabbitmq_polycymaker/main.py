@@ -7,9 +7,8 @@ from configargparse import ArgumentParser
 from prettylog import basic_config, LogFormat
 from yarl import URL
 from pyrabbit2.api import Client
-from rabbitmq_polycymaker.rabbitmq_policy import (
-    RabbitData, wait_for_client
-)
+from rabbitmq_polycymaker.rabbitmq_policy import RabbitData
+from rabbitmq_polycymaker.wait_for_client import wait_for_client
 
 parser = ArgumentParser(auto_env_var_prefix="AMQP_")
 
