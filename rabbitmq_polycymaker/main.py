@@ -73,12 +73,9 @@ if __name__ == "__main__":
 
         policies_dict = rabbit_info.policies()
 
-        queues_without_policy = rabbit_info.queues_without_policy(
-            queues_dict,
-            policies_dict,
-        )
+        queues_without_policy = rabbit_info.queues_without_policy()
 
-        if rabbit_info.need_a_policy(queues_without_policy):
+        if rabbit_info.need_a_policy():
             for vhost, queues in queues_without_policy.items():
                 for queue in queues:
                     rabbit_info.create_policy(

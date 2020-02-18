@@ -80,19 +80,15 @@ class RabbitData:
         log.info("All policies in vhosts: %r", policies_dict)
         return policies_dict
 
-    def queues_without_policy(
-            self,
-            queues_dict: dict,
-            policies_dict: dict,
-    ) -> Dict[str, List]:
+    def queues_without_policy(self) -> Dict[str, List]:
 
         queues_without_policy_dict = {}
 
-        for queue_vhost, queues in queues_dict.items():
+        for queue_vhost, queues in self.queues().items():
             list_queues = []
             for queue in queues:
 
-                if queue not in policies_dict[queue_vhost]:
+                if queue not in self.policies()[queue_vhost]:
                     log.debug("Queue {} on vhost {} without policy".format(
                         queue, queue_vhost
                     ))
@@ -102,9 +98,9 @@ class RabbitData:
 
         return queues_without_policy_dict
 
-    def need_a_policy(self, queues_without_policy: dict):
+    def need_a_policy(self):
         queues = []
-        for q_list in queues_without_policy.values():
+        for q_list in self.queues_without_policy().values():
             if len(q_list) > 0:
                 queues.append(q_list)
 

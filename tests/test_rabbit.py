@@ -46,11 +46,7 @@ def test_with_policies():
 def test_queues_without_policy():
     client = MockRabbit(policies_file='tests/data/get_all_policies_empty.json')
     rabbit_info = RabbitData(client)
-    queues_dict = rabbit_info.queues()
-    policies_dict = rabbit_info.policies()
-    queues_without_policy = rabbit_info.queues_without_policy(
-        queues_dict, policies_dict
-    )
+    queues_without_policy = rabbit_info.queues_without_policy()
     assert queues_without_policy == get_json(
         'tests/data/queues_without_policy.json'
     )
@@ -59,11 +55,7 @@ def test_queues_without_policy():
 def test_queues_with_policy():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
     rabbit_info = RabbitData(client)
-    queues_dict = rabbit_info.queues()
-    policies_dict = rabbit_info.policies()
-    queues_without_policy = rabbit_info.queues_without_policy(
-        queues_dict, policies_dict
-    )
+    queues_without_policy = rabbit_info.queues_without_policy()
     assert queues_without_policy == get_json(
         'tests/data/queues_with_policies.json'
     )
@@ -72,24 +64,14 @@ def test_queues_with_policy():
 def test_need_a_policy():
     client = MockRabbit(policies_file='tests/data/get_all_policies_empty.json')
     rabbit_info = RabbitData(client)
-    queues_dict = rabbit_info.queues()
-    policies_dict = rabbit_info.policies()
-    queues_without_policy = rabbit_info.queues_without_policy(
-        queues_dict, policies_dict
-    )
-    need_a_policy = rabbit_info.need_a_policy(queues_without_policy)
+    need_a_policy = rabbit_info.need_a_policy()
     assert need_a_policy is True
 
 
 def test_need_a_policy_false():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
     rabbit_info = RabbitData(client)
-    queues_dict = rabbit_info.queues()
-    policies_dict = rabbit_info.policies()
-    queues_without_policy = rabbit_info.queues_without_policy(
-        queues_dict, policies_dict
-    )
-    need_a_policy = rabbit_info.need_a_policy(queues_without_policy)
+    need_a_policy = rabbit_info.need_a_policy()
     assert need_a_policy is False
 
 
