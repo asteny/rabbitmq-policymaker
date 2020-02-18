@@ -128,6 +128,7 @@ def test_master_nodes_queues():
         'tests/data/master_nodes_queues.json'
     )
 
+
 def test_calculate_queues():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
     rabbit_info = RabbitData(client)

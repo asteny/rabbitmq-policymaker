@@ -29,7 +29,13 @@ parser.add_argument(
 parser.add_argument(
     "--dry-run",
     action="store_true",
-    help="Dry run mode. Only show which policies will be create", )
+    help="Dry run mode. Only show which policies will be create")
+
+parser.add_argument(
+    "--sleep",
+    type=int,
+    default=20,
+    help="Sleep seconds between run")
 
 parser.add_argument(
     "-L",
@@ -80,11 +86,9 @@ if __name__ == "__main__":
                         vhost, queue, arguments.policy_groups, arguments.dry_run
                     )
 
-
-
         nodes_dict = rabbit_info.nodes_dict()
         master_nodes_queues = rabbit_info.master_nodes_queues(nodes_dict)
         queues_on_nodes = rabbit_info.calculate_queues(master_nodes_queues)
 
-        log.info('Sleeping for 20 seconds')
-        sleep(20)
+        log.info('Sleeping for %r seconds', arguments.sleep)
+        sleep(arguments.sleep)
