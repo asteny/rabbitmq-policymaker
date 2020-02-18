@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
 import logging
-import time
 
-from re import escape
-from typing import Dict, List
 from hashlib import sha1
+from re import escape
+from time import sleep
+from typing import Dict, List
 
 log = logging.getLogger()
+
+RUNNING = "running"
 
 
 def bucket(string, size):
@@ -16,7 +18,13 @@ def bucket(string, size):
 
 
 class RabbitData:
-    def __init__(self, client, policy_groups: Dict, dry_run: bool):
+    def __init__(
+        self,
+        client,
+        policy_groups: Dict,
+        dry_run: bool,
+        wait_sleep: int
+    ):
         self.client = client
         self.policy_groups = policy_groups
         self.dry_run = dry_run
@@ -24,6 +32,7 @@ class RabbitData:
         self.all_queues = self.client.get_queues()
         self.all_policies = self.client.get_all_policies()
         self.nodes = self.client.get_nodes()
+        self.wait_sleep = wait_sleep
 
     def reload(self):
         self.vhosts = self.client.get_vhost_names()
@@ -117,17 +126,17 @@ class RabbitData:
 
     def is_queue_running(self, vhost: str, queue: str) -> bool:
         state = None
-        while state != "running":
+        while state != RUNNING:
             try:
                 state = self.client.get_queue(vhost, queue)["state"]
                 log.info("Queue %r has state %r", queue, state)
-                if state != "running":
-                    time.sleep(1)
+                if state != RUNNING:
+                    sleep(self.wait_sleep)
                 else:
                     return True
             except KeyError:
                 log.exception("RabbitMQ API not ready to answer")
-                time.sleep(2)
+                sleep(self.wait_sleep)
 
     def create_policy(self, vhost: str, queue: str):
 
@@ -158,7 +167,7 @@ class RabbitData:
             self.client.create_policy(
                 vhost=vhost, policy_name=queue, **dict_params
             )
-            time.sleep(3)
+            sleep(self.wait_sleep)
 
             if self.is_queue_running(vhost, queue):
                 log.info(

@@ -37,6 +37,12 @@ parser.add_argument(
     help="Sleep seconds between run")
 
 parser.add_argument(
+    "--wait-sleep",
+    type=int,
+    default=2,
+    help="Sleep seconds between rabbit API requests")
+
+parser.add_argument(
     "-L",
     "--log-level",
     help="Log level",
@@ -62,11 +68,20 @@ if __name__ == "__main__":
         date_format=True,
     )
 
-    client = Client(arguments.api_url, arguments.user, arguments.password)
+    client = Client(
+        arguments.api_url,
+        arguments.user,
+        arguments.password
+    )
     wait_for_client(client)
     log.debug("RabbitMQ alive")
 
-    rabbit_info = RabbitData(client, arguments.policy_groups, arguments.dry_run)
+    rabbit_info = RabbitData(
+        client,
+        arguments.policy_groups,
+        arguments.dry_run,
+        arguments.wait_sleep
+    )
 
     while True:
         if rabbit_info.need_a_policy:

@@ -31,6 +31,7 @@ class MockRabbit:
 PARAMS = "policies_file,expected"
 POLICY_GROUPS = "tests/data/policy_groups.json"
 DRY_RUN = False
+WAIT_SLEEP = 0
 
 
 @pytest.mark.parametrize(
@@ -42,7 +43,12 @@ DRY_RUN = False
 )
 def test_queue(policies_file, expected):
     client = MockRabbit(policies_file=policies_file)
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     assert rabbit_info.queues() == get_json(expected)
 
 
@@ -58,7 +64,12 @@ def test_queue(policies_file, expected):
 )
 def test_policies(policies_file, expected):
     client = MockRabbit(policies_file=policies_file)
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     assert rabbit_info.policies() == get_json(expected)
 
 
@@ -74,7 +85,12 @@ def test_policies(policies_file, expected):
 )
 def test_queues_policies(policies_file, expected):
     client = MockRabbit(policies_file=policies_file)
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     assert rabbit_info.queues_without_policy == get_json(expected)
 
 
@@ -90,7 +106,12 @@ def test_queues_policies(policies_file, expected):
 )
 def test_need_a_policy(policies_file, expected):
     client = MockRabbit(policies_file=policies_file)
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     assert rabbit_info.need_a_policy is expected
 
 
@@ -106,7 +127,12 @@ def test_hash_bucket():
 
 def test_reload_class():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     need_a_policy = rabbit_info.need_a_policy
     assert need_a_policy is False
     client.policies_file = 'tests/data/get_all_policies_empty.json'
@@ -117,14 +143,24 @@ def test_reload_class():
 
 def test_nodes_dict():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     nodes = rabbit_info.nodes_dict()
     assert nodes == get_json('tests/data/nodes.json')
 
 
 def test_master_nodes_queues():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     nodes = rabbit_info.nodes_dict()
     master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
 
@@ -135,7 +171,12 @@ def test_master_nodes_queues():
 
 def test_calculate_queues():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
-    rabbit_info = RabbitData(client, get_json(POLICY_GROUPS), DRY_RUN)
+    rabbit_info = RabbitData(
+        client,
+        get_json(POLICY_GROUPS),
+        DRY_RUN,
+        WAIT_SLEEP
+    )
     nodes = rabbit_info.nodes_dict()
     master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
     calculate_queues = rabbit_info.calculate_queues(master_nodes_queues)
