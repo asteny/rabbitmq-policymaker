@@ -85,6 +85,17 @@ def test_hash_bucket():
     assert m == {0: 340, 1: 328, 2: 332}
 
 
+def test_reload_class():
+    client = MockRabbit(policies_file='tests/data/get_all_policies.json')
+    rabbit_info = RabbitData(client)
+    need_a_policy = rabbit_info.need_a_policy()
+    assert need_a_policy is False
+    client.policies_file = 'tests/data/get_all_policies_empty.json'
+    rabbit_info.reload()
+    need_a_policy = rabbit_info.need_a_policy()
+    assert need_a_policy is True
+
+
 def test_nodes_dict():
     client = MockRabbit(policies_file='tests/data/get_all_policies.json')
     rabbit_info = RabbitData(client)

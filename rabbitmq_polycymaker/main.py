@@ -66,9 +66,9 @@ if __name__ == "__main__":
     wait_for_client(client)
     log.debug("RabbitMQ alive")
 
-    while True:
-        rabbit_info = RabbitData(client)
+    rabbit_info = RabbitData(client)
 
+    while True:
         queues_dict = rabbit_info.queues()
 
         policies_dict = rabbit_info.policies()
@@ -88,3 +88,4 @@ if __name__ == "__main__":
 
         log.info('Sleeping for %r seconds', arguments.sleep)
         sleep(arguments.sleep)
+        rabbit_info.reload()

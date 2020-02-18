@@ -62,7 +62,6 @@ class RabbitData:
         """
         :return: {vhost: [policies]}
         """
-        policies = self.get_all_policies
 
         policies_dict = {}
 
@@ -104,7 +103,7 @@ class RabbitData:
             if len(q_list) > 0:
                 queues.append(q_list)
 
-        log.info("Queue without policy: ", len(queues))
+        log.info("Queue without policy: %r", len(queues))
         return len(queues) > 0
 
     def is_queue_running(self, vhost: str, queue: str) -> bool:
