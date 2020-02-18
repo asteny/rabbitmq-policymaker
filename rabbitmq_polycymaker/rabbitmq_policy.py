@@ -19,10 +19,16 @@ def bucket(string, size):
 class RabbitData:
     def __init__(self, client):
         self.client = client
-        self.get_vhosts = self.client.get_vhost_names()
-        self.get_queues = self.client.get_queues()
-        self.get_all_policies = self.client.get_all_policies()
-        self.get_nodes = self.client.get_nodes()
+        self.vhosts = self.client.get_vhost_names()
+        self.all_queues = self.client.get_queues()
+        self.all_policies = self.client.get_all_policies()
+        self.nodes = self.client.get_nodes()
+
+    def reload(self):
+        self.vhosts = self.client.get_vhost_names()
+        self.all_queues = self.client.get_queues()
+        self.all_policies = self.client.get_all_policies()
+        self.nodes = self.client.get_nodes()
 
     def queues(self) -> Dict[str, List]:
         """
@@ -31,10 +37,10 @@ class RabbitData:
 
         queues_dict = {}
 
-        for vhost in self.get_vhosts:
+        for vhost in self.vhosts:
             list_queues = []
 
-            for queue in self.get_queues:
+            for queue in self.all_queues:
                 name = queue["name"]
                 exclusive = queue["exclusive"]
                 auto_delete = queue["auto_delete"]
@@ -65,10 +71,10 @@ class RabbitData:
 
         policies_dict = {}
 
-        for vhost in self.get_vhosts:
+        for vhost in self.vhosts:
             list_policies = []
 
-            for policy in policies:
+            for policy in self.all_policies:
                 policy_vhost = policy["vhost"]
                 policy_name = policy["name"]
                 if vhost == policy_vhost:
@@ -170,13 +176,13 @@ class RabbitData:
         :param vhost_names list of vhosts
         :return: dict: Key is a name of rabbit node, Value is empty list
         """
-        temp_dict = dict.fromkeys((vhost for vhost in self.get_vhosts))
+        temp_dict = dict.fromkeys((vhost for vhost in self.vhosts))
 
-        get_nodes = self.get_nodes
-        log.debug("Get nodes: %r", get_nodes)
+        nodes = self.nodes
+        log.debug("Get nodes: %r", nodes)
 
         nodes_dict = dict.fromkeys(
-            (node["name"] for node in get_nodes), temp_dict
+            (node["name"] for node in nodes), temp_dict
         )
         log.info("Nodes info: %r", nodes_dict)
         return nodes_dict
@@ -188,14 +194,14 @@ class RabbitData:
 
         master_nodes_queues_dict = {}
 
-        queues_data = self.get_queues
+        queues_data = self.all_queues
         log.debug("Queues info: %r", queues_data)
 
         for node in nodes_dict.keys():
 
             vhost_dict = {}
 
-            for vhost in self.get_vhosts:
+            for vhost in self.vhosts:
                 list_queues = []
 
                 for queue in queues_data:
