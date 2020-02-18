@@ -108,12 +108,8 @@ class RabbitData:
             if len(q_list) > 0:
                 queues.append(q_list)
 
-        if len(queues) > 0:
-            log.info("Queues without_policy: %r", queues_without_policy)
-            return True
-        else:
-            log.info("All queues has policy. Nothing to do")
-            return False
+        log.info("Queue without policy: ", len(queues))
+        return len(queues) > 0
 
     def is_queue_running(self, vhost: str, queue: str) -> bool:
         state = None
