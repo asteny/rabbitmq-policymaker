@@ -233,7 +233,7 @@ class RabbitData:
                 vhost_dict[vhost] = list_queues
                 master_nodes_queues_dict[node] = vhost_dict
 
-        log.debug('Master nodes queues dict %r', master_nodes_queues_dict)
+        log.debug("Master nodes queues dict %r", master_nodes_queues_dict)
         return master_nodes_queues_dict
 
     def calculate_queues(

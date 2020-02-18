@@ -126,7 +126,7 @@ def test_hash_bucket():
 
 
 def test_reload_class():
-    client = MockRabbit(policies_file='tests/data/get_all_policies.json')
+    client = MockRabbit(policies_file="tests/data/get_all_policies.json")
     rabbit_info = RabbitData(
         client,
         get_json(POLICY_GROUPS),
@@ -135,14 +135,14 @@ def test_reload_class():
     )
     need_a_policy = rabbit_info.need_a_policy
     assert need_a_policy is False
-    client.policies_file = 'tests/data/get_all_policies_empty.json'
+    client.policies_file = "tests/data/get_all_policies_empty.json"
     rabbit_info.reload()
     need_a_policy = rabbit_info.need_a_policy
     assert need_a_policy is True
 
 
 def test_nodes_dict():
-    client = MockRabbit(policies_file='tests/data/get_all_policies.json')
+    client = MockRabbit(policies_file="tests/data/get_all_policies.json")
     rabbit_info = RabbitData(
         client,
         get_json(POLICY_GROUPS),
@@ -150,11 +150,11 @@ def test_nodes_dict():
         WAIT_SLEEP
     )
     nodes = rabbit_info.nodes_dict()
-    assert nodes == get_json('tests/data/nodes.json')
+    assert nodes == get_json("tests/data/nodes.json")
 
 
 def test_master_nodes_queues():
-    client = MockRabbit(policies_file='tests/data/get_all_policies.json')
+    client = MockRabbit(policies_file="tests/data/get_all_policies.json")
     rabbit_info = RabbitData(
         client,
         get_json(POLICY_GROUPS),
@@ -165,12 +165,12 @@ def test_master_nodes_queues():
     master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
 
     assert master_nodes_queues == get_json(
-        'tests/data/master_nodes_queues.json'
+        "tests/data/master_nodes_queues.json"
     )
 
 
 def test_calculate_queues():
-    client = MockRabbit(policies_file='tests/data/get_all_policies.json')
+    client = MockRabbit(policies_file="tests/data/get_all_policies.json")
     rabbit_info = RabbitData(
         client,
         get_json(POLICY_GROUPS),
@@ -180,4 +180,4 @@ def test_calculate_queues():
     nodes = rabbit_info.nodes_dict()
     master_nodes_queues = rabbit_info.master_nodes_queues(nodes)
     calculate_queues = rabbit_info.calculate_queues(master_nodes_queues)
-    assert calculate_queues == get_json('tests/data/calculate_queues.json')
+    assert calculate_queues == get_json("tests/data/calculate_queues.json")

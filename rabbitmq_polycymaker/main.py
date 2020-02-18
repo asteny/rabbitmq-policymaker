@@ -22,7 +22,7 @@ parser.add_argument(
     "--policy-groups",
     type=json.loads,
     required=True,
-    help='JSON DC hosts groups for policies. Example: {"dc_name": ["host1"]}'
+    help="JSON DC hosts groups for policies. Example: {'dc_name': ['host1']}"
 )
 
 parser.add_argument(
@@ -48,7 +48,7 @@ parser.add_argument(
     help="Log level",
     default="info",
     choices=(
-        'critical', 'error', 'warning', 'info', 'debug'
+        "critical", "error", "warning", "info", "debug"
     ),
 )
 
