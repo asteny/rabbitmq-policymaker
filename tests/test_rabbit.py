@@ -24,14 +24,6 @@ class MockRabbit:
     def get_nodes(self):
         return get_json('tests/data/get_nodes.json')
 
-    # def create_policy(self, vhost, policy_name, **kwargs):
-    #
-    #     body = json.dumps(kwargs)
-    #     path = "'policy': 'policies/{}/{}'".format(vhost, policy_name)
-    #     policy = self._call(path, 'PUT', body=body,
-    #                         headers=Client.json_headers)
-    #     return policy
-
 
 def test_queue():
     client = MockRabbit(policies_file='tests/data/get_all_policies_empty.json')
