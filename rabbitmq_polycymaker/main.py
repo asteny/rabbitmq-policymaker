@@ -74,12 +74,14 @@ if __name__ == "__main__":
         client, arguments.policy_groups, arguments.dry_run, arguments.wait_sleep
     )
 
-    if rabbit_info.need_a_policy:
-        for vhost, queues in rabbit_info.queues_without_policy.items():
-            for queue in queues:
-                rabbit_info.create_policy(vhost, queue)
+    queues_without_policy = rabbit_info.queues_without_policy()
 
-    rabbit_info.calculate_queues_on_hosts
+    if len(queues_without_policy) > 0:
+        for queue in queues_without_policy:
+            rabbit_info.create_policy(queue.vhost, queue.name)
+    else:
+        log.info("Nothing to do")
 
+    log.info("Queues on nodes: %r", rabbit_info.calculate_queues_on_hosts)
     log.info("Sleeping for %r seconds", arguments.sleep)
     sleep(arguments.sleep)

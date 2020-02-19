@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import logging
-
+from dataclasses import dataclass
 from hashlib import sha1
 from re import escape
 from time import sleep
 from typing import Dict, List
+
 from pyrabbit2 import Client
 
 log = logging.getLogger()
@@ -16,6 +17,12 @@ RUNNING = "running"
 def bucket(string, size):
     hs = int(sha1(string.encode("utf-8")).hexdigest(), 16)
     return hs % size
+
+
+@dataclass
+class QueueWithoutPolicy:
+    vhost: str
+    name: str
 
 
 class RabbitData:
@@ -29,94 +36,31 @@ class RabbitData:
         self.client = client
         self.policy_groups = policy_groups
         self.dry_run = dry_run
-        self.vhosts = self.client.get_vhost_names()
-        self.all_queues = self.client.get_queues()
-        self.all_policies = self.client.get_all_policies()
-        self.nodes = self.client.get_nodes()
         self.wait_sleep = wait_sleep
 
-    def queues(self) -> Dict[str, List]:
-        """
-        :return: Dict: {vhost, [queues]}
-        """
+    def reload(self):
+        self.client.get_vhost_names()
+        self.client.get_queues()
+        self.client.get_nodes()
 
-        queues_dict = {}
+    def queues_without_policy(self) -> List[QueueWithoutPolicy]:
 
-        for vhost in self.vhosts:
-            list_queues = []
+        queues_list = []
 
-            for queue in self.all_queues:
-                name = queue["name"]
-                exclusive = queue["exclusive"]
-                auto_delete = queue["auto_delete"]
-                log.debug(
-                    "Queue {}: Exclusive - {} and Auto_delete - {}".format(
-                        name, exclusive, auto_delete
-                    )
-                ),
-                if all(
-                    (queue["vhost"] == vhost, not exclusive, not auto_delete)
-                ):
-                    list_queues.append(queue["name"])
+        for queue in self.client.get_queues():
+            exclusive = queue.get("exclusive")
+            auto_delete = queue.get("auto_delete")
 
-            log.debug("vhost: {}, list_queues: {}".format(vhost, list_queues))
+            if exclusive or auto_delete:
+                continue
 
-            queues_dict[vhost] = list_queues
+            name = queue.get("name")
+            vhost = queue.get("vhost")
+            policy = queue.get("policy")
+            if not policy or name != policy:
+                queues_list.append(QueueWithoutPolicy(vhost=vhost, name=name))
 
-        log.debug("All queues in vhosts: %r", queues_dict)
-        return queues_dict
-
-    def policies(self) -> Dict[str, List]:
-        """
-        :return: {vhost: [policies]}
-        """
-
-        policies_dict = {}
-
-        for vhost in self.vhosts:
-            list_policies = []
-
-            for policy in self.all_policies:
-                policy_vhost = policy["vhost"]
-                policy_name = policy["name"]
-                if vhost == policy_vhost:
-                    list_policies.append(policy_name)
-
-            policies_dict[vhost] = list_policies
-
-        log.debug("All policies in vhosts: %r", policies_dict)
-        return policies_dict
-
-    @property
-    def queues_without_policy(self) -> Dict[str, List]:
-
-        queues_without_policy_dict = {}
-
-        for queue_vhost, queues in self.queues().items():
-            list_queues = []
-            for queue in queues:
-
-                if queue not in self.policies()[queue_vhost]:
-                    log.debug(
-                        "Queue {} on vhost {} without policy".format(
-                            queue, queue_vhost
-                        )
-                    )
-                    list_queues.append(queue)
-
-            queues_without_policy_dict[queue_vhost] = list_queues
-
-        return queues_without_policy_dict
-
-    @property
-    def need_a_policy(self):
-        queues = []
-        for q_list in self.queues_without_policy.values():
-            if len(q_list) > 0:
-                queues.append(q_list)
-
-        log.info("Queues without policy: %r", queues)
-        return len(queues) > 0
+        return queues_list
 
     def is_queue_running(self, vhost: str, queue: str) -> bool:
         state = None
@@ -166,63 +110,6 @@ class RabbitData:
                 "It's a dry run mode: Policy body dict will be %r", dict_params
             )
 
-    def nodes_dict(self) -> Dict[str, List]:
-        """
-        :param nodes_info_data
-        :param vhost_names list of vhosts
-        :return: dict: Key is a name of rabbit node, Value is empty list
-        """
-        temp_dict = dict.fromkeys((vhost for vhost in self.vhosts))
-
-        nodes = self.nodes
-        log.debug("Get nodes: %r", nodes)
-
-        nodes_dict = dict.fromkeys((node["name"] for node in nodes), temp_dict)
-        log.debug("Nodes info: %r", nodes_dict)
-        return nodes_dict
-
-    def master_nodes_queues(self) -> Dict[str, Dict[str, List]]:
-        """
-        :return: dict {node_name: {vhost1: list_queues, vhost2: list_queues}
-        """
-
-        master_nodes_queues_dict = {}
-
-        queues_data = self.all_queues
-        log.debug("Queues info: %r", queues_data)
-
-        for node in self.nodes_dict().keys():
-
-            vhost_dict = {}
-
-            for vhost in self.vhosts:
-                list_queues = []
-
-                for queue in queues_data:
-                    name = queue["name"]
-                    exclusive = queue["exclusive"]
-                    auto_delete = queue["auto_delete"]
-                    log.debug(
-                        "Queue {}: Exclusive - {} and Auto_delete - {}".format(
-                            name, exclusive, auto_delete
-                        )
-                    ),
-                    if all(
-                        (
-                            node == queue["node"],
-                            queue["vhost"] == vhost,
-                            not exclusive,
-                            not auto_delete,
-                        )
-                    ):
-                        list_queues.append(queue["name"])
-
-                vhost_dict[vhost] = list_queues
-                master_nodes_queues_dict[node] = vhost_dict
-
-        log.debug("Master nodes queues dict %r", master_nodes_queues_dict)
-        return master_nodes_queues_dict
-
     @property
     def calculate_queues_on_hosts(self) -> Dict[str, int]:
         """
@@ -231,9 +118,22 @@ class RabbitData:
 
         calculated_dict = {}
 
-        for node, vhost in self.master_nodes_queues().items():
-            counter = sum(map(len, vhost.values()))
-            calculated_dict[node] = counter
+        nodes = self.client.get_nodes()
+        queues = self.client.get_queues()
 
-        log.info("Queues on nodes: %r", calculated_dict)
+        for node in nodes:
+            node_name = node.get("name")
+            for queue in queues:
+                exclusive = queue.get("exclusive")
+                auto_delete = queue.get("auto_delete")
+
+                if exclusive or auto_delete:
+                    continue
+
+                queue_node = queue.get("node")
+                if node_name == queue_node:
+                    calculated_dict[node_name] = (
+                        calculated_dict.setdefault(node_name, 0) + 1
+                    )
+
         return calculated_dict
