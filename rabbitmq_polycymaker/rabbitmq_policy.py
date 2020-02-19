@@ -6,6 +6,7 @@ from hashlib import sha1
 from re import escape
 from time import sleep
 from typing import Dict, List
+from pyrabbit2 import Client
 
 log = logging.getLogger()
 
@@ -19,7 +20,11 @@ def bucket(string, size):
 
 class RabbitData:
     def __init__(
-        self, client, policy_groups: Dict, dry_run: bool, wait_sleep: int
+        self,
+        client: Client,
+        policy_groups: Dict,
+        dry_run: bool,
+        wait_sleep: int,
     ):
         self.client = client
         self.policy_groups = policy_groups
@@ -29,12 +34,6 @@ class RabbitData:
         self.all_policies = self.client.get_all_policies()
         self.nodes = self.client.get_nodes()
         self.wait_sleep = wait_sleep
-
-    def reload(self):
-        self.vhosts = self.client.get_vhost_names()
-        self.all_queues = self.client.get_queues()
-        self.all_policies = self.client.get_all_policies()
-        self.nodes = self.client.get_nodes()
 
     def queues(self) -> Dict[str, List]:
         """
