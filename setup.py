@@ -28,7 +28,7 @@ setup(
     python_requires=">=3.7",
     entry_points={
         "console_scripts": [
-            "rabbitmq_policymaker = rabbitmq_policymaker.main:main",
-        ],
+            "rabbitmq_policymaker = rabbitmq_policymaker.main:main"
+        ]
     },
 )

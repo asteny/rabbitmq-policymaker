@@ -19,11 +19,7 @@ def bucket(string, size):
 
 class RabbitData:
     def __init__(
-        self,
-        client,
-        policy_groups: Dict,
-        dry_run: bool,
-        wait_sleep: int
+        self, client, policy_groups: Dict, dry_run: bool, wait_sleep: int
     ):
         self.client = client
         self.policy_groups = policy_groups
@@ -56,15 +52,12 @@ class RabbitData:
                 auto_delete = queue["auto_delete"]
                 log.debug(
                     "Queue {}: Exclusive - {} and Auto_delete - {}".format(
-                        name,
-                        exclusive,
-                        auto_delete,
-                    )),
-                if all((
-                        queue["vhost"] == vhost,
-                        not exclusive,
-                        not auto_delete,
-                )):
+                        name, exclusive, auto_delete
+                    )
+                ),
+                if all(
+                    (queue["vhost"] == vhost, not exclusive, not auto_delete)
+                ):
                     list_queues.append(queue["name"])
 
             log.debug("vhost: {}, list_queues: {}".format(vhost, list_queues))
@@ -105,9 +98,11 @@ class RabbitData:
             for queue in queues:
 
                 if queue not in self.policies()[queue_vhost]:
-                    log.debug("Queue {} on vhost {} without policy".format(
-                        queue, queue_vhost
-                    ))
+                    log.debug(
+                        "Queue {} on vhost {} without policy".format(
+                            queue, queue_vhost
+                        )
+                    )
                     list_queues.append(queue)
 
             queues_without_policy_dict[queue_vhost] = list_queues
@@ -141,8 +136,7 @@ class RabbitData:
     def create_policy(self, vhost: str, queue: str):
 
         bucket_number = bucket(
-            "{}{}".format(vhost, queue),
-            len(self.policy_groups)
+            "{}{}".format(vhost, queue), len(self.policy_groups)
         )
         bucket_nodes = self.policy_groups.get(str(bucket_number))
 
@@ -151,10 +145,7 @@ class RabbitData:
         for node in bucket_nodes:
             rabbit_nodes.append("rabbit@{}".format(node))
 
-        definition_dict = {
-            "ha-mode": "nodes",
-            "ha-params": rabbit_nodes,
-        }
+        definition_dict = {"ha-mode": "nodes", "ha-params": rabbit_nodes}
         dict_params = {
             "pattern": "{}{}{}".format("^", escape(queue), "$"),
             "definition": definition_dict,
@@ -170,9 +161,7 @@ class RabbitData:
             sleep(self.wait_sleep)
 
             if self.is_queue_running(vhost, queue):
-                log.info(
-                    "Policy created and queue %r in running state", queue
-                )
+                log.info("Policy created and queue %r in running state", queue)
         else:
             log.info(
                 "It's a dry run mode: Policy body dict will be %r", dict_params
@@ -189,9 +178,7 @@ class RabbitData:
         nodes = self.nodes
         log.debug("Get nodes: %r", nodes)
 
-        nodes_dict = dict.fromkeys(
-            (node["name"] for node in nodes), temp_dict
-        )
+        nodes_dict = dict.fromkeys((node["name"] for node in nodes), temp_dict)
         log.debug("Nodes info: %r", nodes_dict)
         return nodes_dict
 
@@ -218,16 +205,17 @@ class RabbitData:
                     auto_delete = queue["auto_delete"]
                     log.debug(
                         "Queue {}: Exclusive - {} and Auto_delete - {}".format(
-                            name,
-                            exclusive,
-                            auto_delete,
-                        )),
-                    if all((
+                            name, exclusive, auto_delete
+                        )
+                    ),
+                    if all(
+                        (
                             node == queue["node"],
                             queue["vhost"] == vhost,
                             not exclusive,
                             not auto_delete,
-                    )):
+                        )
+                    ):
                         list_queues.append(queue["name"])
 
                 vhost_dict[vhost] = list_queues
