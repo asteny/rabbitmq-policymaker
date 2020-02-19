@@ -13,6 +13,7 @@ def load_requirements(fname):
         line_iter = (line.strip() for line in f.readlines())
         return [line for line in line_iter if line and line[0] != "#"]
 
+
 setup(
     name="rabbitmq-policymaker",
     version=__version__,
