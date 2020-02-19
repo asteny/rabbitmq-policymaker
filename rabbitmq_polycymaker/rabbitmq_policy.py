@@ -23,7 +23,7 @@ class RabbitData:
         client,
         policy_groups: Dict,
         dry_run: bool,
-        sleep_seconds : int
+        wait_sleep: int
     ):
         self.client = client
         self.policy_groups = policy_groups
@@ -32,7 +32,7 @@ class RabbitData:
         self.all_queues = self.client.get_queues()
         self.all_policies = self.client.get_all_policies()
         self.nodes = self.client.get_nodes()
-        self.sleep_seconds = sleep_seconds
+        self.wait_sleep = wait_sleep
 
     def reload(self):
         self.vhosts = self.client.get_vhost_names()
@@ -131,12 +131,12 @@ class RabbitData:
                 state = self.client.get_queue(vhost, queue)["state"]
                 log.info("Queue %r has state %r", queue, state)
                 if state != RUNNING:
-                    sleep(self.sleep_seconds)
+                    sleep(self.wait_sleep)
                 else:
                     return True
             except KeyError:
                 log.exception("RabbitMQ API not ready to answer")
-                sleep(self.sleep_seconds)
+                sleep(self.wait_sleep)
 
     def create_policy(self, vhost: str, queue: str):
 
@@ -167,7 +167,7 @@ class RabbitData:
             self.client.create_policy(
                 vhost=vhost, policy_name=queue, **dict_params
             )
-            sleep(self.sleep_seconds)
+            sleep(self.wait_sleep)
 
             if self.is_queue_running(vhost, queue):
                 log.info(
@@ -236,6 +236,7 @@ class RabbitData:
         log.debug("Master nodes queues dict %r", master_nodes_queues_dict)
         return master_nodes_queues_dict
 
+    @property
     def calculate_queues_on_hosts(self) -> Dict[str, int]:
         """
         :return: dict {node1: number_queues, node2: number_queues,}

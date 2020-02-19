@@ -176,4 +176,4 @@ def test_calculate_queues():
         DRY_RUN,
         WAIT_SLEEP
     )
-    assert rabbit_info.calculate_queues_on_hosts() == get_json("tests/data/calculate_queues.json")
+    assert rabbit_info.calculate_queues_on_hosts == get_json("tests/data/calculate_queues.json")

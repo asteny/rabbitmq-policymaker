@@ -23,10 +23,11 @@ setup(
     platforms="all",
     packages=find_packages(),
     install_requires=load_requirements("requirements.txt"),
+    extras_require={"develop": load_requirements("requirements.dev.txt")},
     python_requires=">=3.7",
     entry_points={
         "console_scripts": [
-            "rabbitmq-policymaker = rabbitmq-policymaker.main:main",
+            "rabbitmq_policymaker = rabbitmq_policymaker.main:main",
         ],
     },
 )
