@@ -4,6 +4,7 @@ import json
 from typing import List
 
 import pytest
+from pyrabbit2.http import HTTPError
 
 from rabbitmq_polycymaker.rabbitmq_policy import (
     RabbitData,
@@ -43,6 +44,12 @@ class MockRabbit:
 
     def get_nodes(self):
         return get_json("tests/data/get_nodes.json")
+
+    def get_policy(self, vhost, name):
+        raise HTTPError(
+            content={"error": "Object Not Found", "reason": "Not Found"},
+            status=404,
+        )
 
 
 @pytest.mark.parametrize(
