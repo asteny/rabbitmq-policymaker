@@ -70,11 +70,10 @@ class RabbitData:
                 log.info("Queue %r has state %r", queue, state)
                 if state != RUNNING:
                     sleep(self.wait_sleep)
-                else:
-                    return True
             except KeyError:
                 log.exception("RabbitMQ API not ready to answer")
                 sleep(self.wait_sleep)
+        return True
 
     def create_policy(self, vhost: str, queue: str):
 

@@ -84,17 +84,3 @@ def test_calculate_queues_on_hosts():
     assert rabbit_info.calculate_queues_on_hosts == get_json(
         "tests/data/calculate_queues.json"
     )
-
-
-# for i in range(15):
-#     name = 'app.delayed+{}'.format(i)
-#     client.create_queue('my_app', name)
-# for i in range(1,13):
-#     name = 'app.delayed-{}'.format(i)
-#     client.create_queue('my_app', name)
-# for i in range(120):
-#     name = 'worker_writer.queue.delay.part.{}'.format(i)
-#     client.delete_policy('first_vhost', name)
-# for i in range(120):
-#     name = 'queue.part.{}'.format(i)
-#     client.delete_policy('some_vhost', name)
