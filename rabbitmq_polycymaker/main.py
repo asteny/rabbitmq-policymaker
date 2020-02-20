@@ -74,7 +74,7 @@ if __name__ == "__main__":
         client, arguments.policy_groups, arguments.dry_run, arguments.wait_sleep
     )
 
-    queues_without_policy = rabbit_info.queues_without_policy()
+    queues_without_policy = rabbit_info.queues_without_policy
 
     if len(queues_without_policy) > 0:
         for queue in queues_without_policy:

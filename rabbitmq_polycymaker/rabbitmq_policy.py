@@ -43,6 +43,7 @@ class RabbitData:
         self.client.get_queues()
         self.client.get_nodes()
 
+    @property
     def queues_without_policy(self) -> List[QueueWithoutPolicy]:
 
         queues_list = []

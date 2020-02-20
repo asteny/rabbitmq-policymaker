@@ -11,7 +11,6 @@ from rabbitmq_polycymaker.rabbitmq_policy import (
     QueueWithoutPolicy,
 )
 
-PARAMS = "queues,expected"
 POLICY_GROUPS = "tests/data/policy_groups.json"
 DRY_RUN = False
 WAIT_SLEEP = 0
@@ -47,7 +46,7 @@ class MockRabbit:
 
 
 @pytest.mark.parametrize(
-    PARAMS,
+    "queues,expected",
     [
         (
             "tests/data/get_queues_without_policies.json",
@@ -63,7 +62,7 @@ def test_queue_without_policy(queues, expected):
     rabbit_info = RabbitData(
         client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP
     )
-    assert rabbit_info.queues_without_policy() == expected
+    assert rabbit_info.queues_without_policy == expected
 
 
 def test_hash_bucket():
