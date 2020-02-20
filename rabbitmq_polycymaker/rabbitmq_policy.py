@@ -8,6 +8,7 @@ from time import sleep
 from typing import Dict, List
 
 from pyrabbit2 import Client
+from pyrabbit2.http import HTTPError
 
 log = logging.getLogger()
 
@@ -55,11 +56,23 @@ class RabbitData:
             if exclusive or auto_delete:
                 continue
 
-            name = queue.get("name")
-            vhost = queue.get("vhost")
-            policy = queue.get("policy")
-            if not policy or name != policy:
-                queues_list.append(QueueWithoutPolicy(vhost=vhost, name=name))
+            queue_name = queue.get("name")
+            queue_vhost = queue.get("vhost")
+            policy_on_queue = queue.get("policy")
+
+            if not policy_on_queue or queue_name != policy_on_queue:
+                policy = None
+                try:
+                    policy = self.client.get_policy(queue_vhost,
+                                                    queue_name).get(
+                        "name"
+                    )
+                except HTTPError as er:
+                    log.debug(er)
+                if not policy:
+                    queues_list.append(
+                        QueueWithoutPolicy(vhost=queue_vhost, name=queue_name)
+                    )
 
         return queues_list
 
