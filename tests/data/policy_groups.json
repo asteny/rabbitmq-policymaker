@@ -1,0 +1,17 @@
+{
+ "0": [
+  "rabbit-dc1-1",
+  "rabbit-dc2-1",
+  "rabbit-dc3-1"
+ ],
+ "1": [
+  "rabbit-dc1-2",
+  "rabbit-dc2-2",
+  "rabbit-dc3-2"
+ ],
+ "2": [
+  "rabbit-dc1-3",
+  "rabbit-dc2-3",
+  "rabbit-dc3-3"
+ ]
+}

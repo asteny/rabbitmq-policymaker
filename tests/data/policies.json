@@ -1,0 +1,1074 @@
+[
+ {
+  "vhost": "/",
+  "name": "aliveness-test"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.0"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.1"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.10"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.100"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.101"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.102"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.103"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.104"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.105"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.106"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.107"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.108"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.109"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.11"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.110"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.111"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.112"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.113"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.114"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.115"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.116"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.117"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.118"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.119"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.12"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.13"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.14"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.15"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.16"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.17"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.18"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.19"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.2"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.20"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.21"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.22"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.23"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.24"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.25"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.26"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.27"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.28"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.29"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.3"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.30"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.31"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.32"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.33"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.34"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.35"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.36"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.37"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.38"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.39"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.4"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.40"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.41"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.42"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.43"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.44"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.45"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.46"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.47"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.48"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.49"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.5"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.50"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.51"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.52"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.53"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.54"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.55"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.56"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.57"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.58"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.59"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.6"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.60"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.61"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.62"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.63"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.64"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.65"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.66"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.67"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.68"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.69"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.7"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.70"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.71"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.72"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.73"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.74"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.75"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.76"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.77"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.78"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.79"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.8"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.80"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.81"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.82"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.83"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.84"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.85"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.86"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.87"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.88"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.89"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.9"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.90"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.91"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.92"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.93"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.94"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.95"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.96"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.97"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.98"
+ },
+ {
+  "vhost": "first_vhost",
+  "name": "worker_writer.queue.delay.part.99"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+0"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+1"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+10"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+11"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+12"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+13"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+14"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+2"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+3"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+4"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+5"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+6"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+7"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+8"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed+9"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-1"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-10"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-11"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-12"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-2"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-3"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-4"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-5"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-6"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-7"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-8"
+ },
+ {
+  "vhost": "my_app",
+  "name": "app.delayed-9"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.0"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.1"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.10"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.100"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.101"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.102"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.103"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.104"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.105"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.106"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.107"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.108"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.109"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.11"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.110"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.111"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.112"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.113"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.114"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.115"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.116"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.117"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.118"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.119"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.12"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.13"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.14"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.15"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.16"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.17"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.18"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.19"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.2"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.20"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.21"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.22"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.23"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.24"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.25"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.26"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.27"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.28"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.29"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.3"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.30"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.31"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.32"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.33"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.34"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.35"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.36"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.37"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.38"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.39"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.4"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.40"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.41"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.42"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.43"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.44"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.45"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.46"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.47"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.48"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.49"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.5"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.50"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.51"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.52"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.53"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.54"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.55"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.56"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.57"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.58"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.59"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.6"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.60"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.61"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.62"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.63"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.64"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.65"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.66"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.67"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.68"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.69"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.7"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.70"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.71"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.72"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.73"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.74"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.75"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.76"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.77"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.78"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.79"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.8"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.80"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.81"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.82"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.83"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.84"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.85"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.86"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.87"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.88"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.89"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.9"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.90"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.91"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.92"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.93"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.94"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.95"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.96"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.97"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.98"
+ },
+ {
+  "vhost": "some_vhost",
+  "name": "queue.part.99"
+ }
+]

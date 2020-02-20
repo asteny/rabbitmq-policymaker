@@ -1,0 +1,5294 @@
+[
+ {
+  "partitions": [],
+  "os_pid": "196",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6924809,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc1-1_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc1-1",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc1-1",
+  "type": "disc",
+  "running": true,
+  "mem_used": 167661568,
+  "mem_used_details": {
+   "rate": 1540096.0
+  },
+  "fd_used": 49,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 813,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2758561,
+  "gc_num_details": {
+   "rate": 440.2
+  },
+  "gc_bytes_reclaimed": 240668244800,
+  "gc_bytes_reclaimed_details": {
+   "rate": 38645804.8
+  },
+  "context_switches": 12993992,
+  "context_switches_details": {
+   "rate": 1981.6
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 4.752,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 904,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 306,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 61,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.09440983606557377,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 26917245,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 146008486,
+     "recv_bytes_details": {
+      "rate": 21942.4
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 39851,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 25672,
+    "recv_bytes": 146008486,
+    "send_bytes": 26917245
+   },
+   {
+    "stats": {
+     "send_bytes": 26982839,
+     "send_bytes_details": {
+      "rate": 3782.6
+     },
+     "recv_bytes": 170889657,
+     "recv_bytes_details": {
+      "rate": 25837.4
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 33859,
+    "recv_bytes": 170889657,
+    "send_bytes": 26982839
+   },
+   {
+    "stats": {
+     "send_bytes": 27028721,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 103704779,
+     "recv_bytes_details": {
+      "rate": 14994.4
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 47065,
+    "recv_bytes": 103704779,
+    "send_bytes": 27028721
+   },
+   {
+    "stats": {
+     "send_bytes": 26957500,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 110979150,
+     "recv_bytes_details": {
+      "rate": 15900.6
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 60705,
+    "recv_bytes": 110979150,
+    "send_bytes": 26957500
+   },
+   {
+    "stats": {
+     "send_bytes": 26893849,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 106078742,
+     "recv_bytes_details": {
+      "rate": 15337.8
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 44931,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 25672,
+    "recv_bytes": 106078742,
+    "send_bytes": 26893849
+   },
+   {
+    "stats": {
+     "send_bytes": 26958417,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 102474135,
+     "recv_bytes_details": {
+      "rate": 14797.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 37939,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 25672,
+    "recv_bytes": 102474135,
+    "send_bytes": 26958417
+   },
+   {
+    "stats": {
+     "send_bytes": 26934693,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 112545302,
+     "recv_bytes_details": {
+      "rate": 16069.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 51267,
+    "recv_bytes": 112545302,
+    "send_bytes": 26934693
+   },
+   {
+    "stats": {
+     "send_bytes": 26926014,
+     "send_bytes_details": {
+      "rate": 3769.8
+     },
+     "recv_bytes": 106268731,
+     "recv_bytes_details": {
+      "rate": 15264.4
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.5",
+    "sock_port": 60923,
+    "recv_bytes": 106268731,
+    "send_bytes": 26926014
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "197",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6925203,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc1-2_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc1-2",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc1-2",
+  "type": "disc",
+  "running": true,
+  "mem_used": 98201600,
+  "mem_used_details": {
+   "rate": -49971.2
+  },
+  "fd_used": 50,
+  "fd_used_details": {
+   "rate": 0.4
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 763,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2152224,
+  "gc_num_details": {
+   "rate": 353.0
+  },
+  "gc_bytes_reclaimed": 8194421120,
+  "gc_bytes_reclaimed_details": {
+   "rate": 1628571.2
+  },
+  "context_switches": 4952640,
+  "context_switches_details": {
+   "rate": 743.8
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 0.036,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 525,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 0,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 60,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.04746666666666667,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 146008486,
+     "send_bytes_details": {
+      "rate": 21942.4
+     },
+     "recv_bytes": 26917245,
+     "recv_bytes_details": {
+      "rate": 3769.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 39851,
+    "recv_bytes": 26917245,
+    "send_bytes": 146008486
+   },
+   {
+    "stats": {
+     "send_bytes": 569401,
+     "send_bytes_details": {
+      "rate": 21.0
+     },
+     "recv_bytes": 606295,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 46283,
+    "recv_bytes": 606295,
+    "send_bytes": 569401
+   },
+   {
+    "stats": {
+     "send_bytes": 556242,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 538044,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 59307,
+    "recv_bytes": 538044,
+    "send_bytes": 556242
+   },
+   {
+    "stats": {
+     "send_bytes": 636075,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 635587,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 45155,
+    "recv_bytes": 635587,
+    "send_bytes": 636075
+   },
+   {
+    "stats": {
+     "send_bytes": 539670,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 584142,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 40981,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 25672,
+    "recv_bytes": 584142,
+    "send_bytes": 539670
+   },
+   {
+    "stats": {
+     "send_bytes": 505482,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 517461,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 35409,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 25672,
+    "recv_bytes": 517461,
+    "send_bytes": 505482
+   },
+   {
+    "stats": {
+     "send_bytes": 598233,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 579616,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 45099,
+    "recv_bytes": 579616,
+    "send_bytes": 598233
+   },
+   {
+    "stats": {
+     "send_bytes": 535568,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 527976,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.8",
+    "sock_port": 48525,
+    "recv_bytes": 527976,
+    "send_bytes": 535568
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "186",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6939081,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   },
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc1-3_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc1-3",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc1-3",
+  "type": "disc",
+  "running": true,
+  "mem_used": 98623488,
+  "mem_used_details": {
+   "rate": -152371.2
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 845,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2668883,
+  "gc_num_details": {
+   "rate": 427.0
+  },
+  "gc_bytes_reclaimed": 9723698888,
+  "gc_bytes_reclaimed_details": {
+   "rate": 1516840.0
+  },
+  "context_switches": 5787806,
+  "context_switches_details": {
+   "rate": 859.2
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 3.218,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 617,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 17,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 57,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.1288421052631579,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 170889657,
+     "send_bytes_details": {
+      "rate": 25837.4
+     },
+     "recv_bytes": 26982839,
+     "recv_bytes_details": {
+      "rate": 3790.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 33859,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 27001688,
+    "send_bytes": 171018620
+   },
+   {
+    "stats": {
+     "send_bytes": 606295,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 569401,
+     "recv_bytes_details": {
+      "rate": 21.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 46283,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 569401,
+    "send_bytes": 606295
+   },
+   {
+    "stats": {
+     "send_bytes": 630962,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 598729,
+     "recv_bytes_details": {
+      "rate": 12.8
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 44175,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 598770,
+    "send_bytes": 630962
+   },
+   {
+    "stats": {
+     "send_bytes": 663923,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 643498,
+     "recv_bytes_details": {
+      "rate": 21.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 48183,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 643498,
+    "send_bytes": 663923
+   },
+   {
+    "stats": {
+     "send_bytes": 729287,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 717796,
+     "recv_bytes_details": {
+      "rate": 21.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 34969,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 717796,
+    "send_bytes": 729287
+   },
+   {
+    "stats": {
+     "send_bytes": 600944,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 547051,
+     "recv_bytes_details": {
+      "rate": 12.8
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 48259,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 547092,
+    "send_bytes": 600944
+   },
+   {
+    "stats": {
+     "send_bytes": 649434,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 579073,
+     "recv_bytes_details": {
+      "rate": 12.8
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 45721,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 579114,
+    "send_bytes": 649434
+   },
+   {
+    "stats": {
+     "send_bytes": 706531,
+     "send_bytes_details": {
+      "rate": 42.8
+     },
+     "recv_bytes": 651687,
+     "recv_bytes_details": {
+      "rate": 12.8
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 55375,
+    "sock_addr": "172.50.0.11",
+    "sock_port": 25672,
+    "recv_bytes": 651728,
+    "send_bytes": 706531
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "187",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6929910,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc2-1_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc2-1",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc2-1",
+  "type": "disc",
+  "running": true,
+  "mem_used": 98512896,
+  "mem_used_details": {
+   "rate": 229376.0
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 742,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": -2457.6
+  },
+  "gc_num": 2359693,
+  "gc_num_details": {
+   "rate": 380.4
+  },
+  "gc_bytes_reclaimed": 6688454440,
+  "gc_bytes_reclaimed_details": {
+   "rate": 967620.8
+  },
+  "context_switches": 5027800,
+  "context_switches_details": {
+   "rate": 747.4
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 1.252,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 545,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 2,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 58,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.27322413793103445,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 103779697,
+     "send_bytes_details": {
+      "rate": 14994.0
+     },
+     "recv_bytes": 27047570,
+     "recv_bytes_details": {
+      "rate": 3769.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 47065,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 27047570,
+    "send_bytes": 103779697
+   },
+   {
+    "stats": {
+     "send_bytes": 538044,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 556242,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 59307,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 556242,
+    "send_bytes": 538044
+   },
+   {
+    "stats": {
+     "send_bytes": 598770,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 630962,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 44175,
+    "recv_bytes": 630962,
+    "send_bytes": 598770
+   },
+   {
+    "stats": {
+     "send_bytes": 569631,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 569488,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 50163,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 569488,
+    "send_bytes": 569631
+   },
+   {
+    "stats": {
+     "send_bytes": 522734,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 576023,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 50753,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 576023,
+    "send_bytes": 522734
+   },
+   {
+    "stats": {
+     "send_bytes": 568492,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 582082,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 50743,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 582082,
+    "send_bytes": 568492
+   },
+   {
+    "stats": {
+     "send_bytes": 577716,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 557154,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 55765,
+    "recv_bytes": 557154,
+    "send_bytes": 577716
+   },
+   {
+    "stats": {
+     "send_bytes": 560371,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 561815,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 34735,
+    "sock_addr": "172.50.0.6",
+    "sock_port": 25672,
+    "recv_bytes": 561815,
+    "send_bytes": 560371
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "191",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6925327,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc2-2_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc2-2",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc2-2",
+  "type": "disc",
+  "running": true,
+  "mem_used": 97468416,
+  "mem_used_details": {
+   "rate": 23756.8
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 720,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2142865,
+  "gc_num_details": {
+   "rate": 344.8
+  },
+  "gc_bytes_reclaimed": 6664721112,
+  "gc_bytes_reclaimed_details": {
+   "rate": 859160.0
+  },
+  "context_switches": 4755191,
+  "context_switches_details": {
+   "rate": 698.4
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 0.063,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 562,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 2,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 70,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.048600000000000004,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 110979150,
+     "send_bytes_details": {
+      "rate": 15900.6
+     },
+     "recv_bytes": 26957500,
+     "recv_bytes_details": {
+      "rate": 3778.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 60705,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 25672,
+    "recv_bytes": 26994624,
+    "send_bytes": 111097871
+   },
+   {
+    "stats": {
+     "send_bytes": 635587,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 636075,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 45155,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 25672,
+    "recv_bytes": 636075,
+    "send_bytes": 635587
+   },
+   {
+    "stats": {
+     "send_bytes": 643498,
+     "send_bytes_details": {
+      "rate": 21.0
+     },
+     "recv_bytes": 663923,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 48183,
+    "recv_bytes": 663923,
+    "send_bytes": 643498
+   },
+   {
+    "stats": {
+     "send_bytes": 569488,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 569631,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 50163,
+    "recv_bytes": 569631,
+    "send_bytes": 569488
+   },
+   {
+    "stats": {
+     "send_bytes": 590454,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 607208,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 44445,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 25672,
+    "recv_bytes": 607208,
+    "send_bytes": 590454
+   },
+   {
+    "stats": {
+     "send_bytes": 530248,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 522138,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 41839,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 25672,
+    "recv_bytes": 522138,
+    "send_bytes": 530248
+   },
+   {
+    "stats": {
+     "send_bytes": 653868,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 607657,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 39203,
+    "recv_bytes": 607698,
+    "send_bytes": 653868
+   },
+   {
+    "stats": {
+     "send_bytes": 571568,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 564782,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 58487,
+    "sock_addr": "172.50.0.9",
+    "sock_port": 25672,
+    "recv_bytes": 564823,
+    "send_bytes": 571568
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "192",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6924706,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc2-3_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc2-3",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc2-3",
+  "type": "disc",
+  "running": true,
+  "mem_used": 94560256,
+  "mem_used_details": {
+   "rate": -24576.0
+  },
+  "fd_used": 50,
+  "fd_used_details": {
+   "rate": 0.4
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 776,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2642825,
+  "gc_num_details": {
+   "rate": 428.8
+  },
+  "gc_bytes_reclaimed": 7059997048,
+  "gc_bytes_reclaimed_details": {
+   "rate": 894980.8
+  },
+  "context_switches": 5367465,
+  "context_switches_details": {
+   "rate": 804.4
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 0.9,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 584,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 0,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 58,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.11262068965517241,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 106078742,
+     "send_bytes_details": {
+      "rate": 15337.8
+     },
+     "recv_bytes": 26893849,
+     "recv_bytes_details": {
+      "rate": 3778.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 44931,
+    "recv_bytes": 26912698,
+    "send_bytes": 106155351
+   },
+   {
+    "stats": {
+     "send_bytes": 584142,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 539670,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 40981,
+    "recv_bytes": 539670,
+    "send_bytes": 584142
+   },
+   {
+    "stats": {
+     "send_bytes": 717796,
+     "send_bytes_details": {
+      "rate": 21.0
+     },
+     "recv_bytes": 729287,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 34969,
+    "recv_bytes": 729287,
+    "send_bytes": 717796
+   },
+   {
+    "stats": {
+     "send_bytes": 576023,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 522693,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 50753,
+    "recv_bytes": 522734,
+    "send_bytes": 576023
+   },
+   {
+    "stats": {
+     "send_bytes": 607208,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 590454,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 44445,
+    "recv_bytes": 590454,
+    "send_bytes": 607208
+   },
+   {
+    "stats": {
+     "send_bytes": 537913,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 523140,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 56235,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 25672,
+    "recv_bytes": 523181,
+    "send_bytes": 537913
+   },
+   {
+    "stats": {
+     "send_bytes": 565127,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 511460,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 44427,
+    "recv_bytes": 511501,
+    "send_bytes": 565127
+   },
+   {
+    "stats": {
+     "send_bytes": 646755,
+     "send_bytes_details": {
+      "rate": 8.2
+     },
+     "recv_bytes": 607293,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.12",
+    "sock_port": 50199,
+    "recv_bytes": 607334,
+    "send_bytes": 646755
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "193",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6930164,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc3-1_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc3-1",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc3-1",
+  "type": "disc",
+  "running": true,
+  "mem_used": 99622912,
+  "mem_used_details": {
+   "rate": -123699.2
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 741,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2384389,
+  "gc_num_details": {
+   "rate": 386.0
+  },
+  "gc_bytes_reclaimed": 6619402224,
+  "gc_bytes_reclaimed_details": {
+   "rate": 964907.2
+  },
+  "context_switches": 4994467,
+  "context_switches_details": {
+   "rate": 737.4
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 0.135,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 528,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 0,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 61,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.09678688524590165,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 102474093,
+     "send_bytes_details": {
+      "rate": 14788.6
+     },
+     "recv_bytes": 26958417,
+     "recv_bytes_details": {
+      "rate": 3778.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 37939,
+    "recv_bytes": 26977266,
+    "send_bytes": 102548077
+   },
+   {
+    "stats": {
+     "send_bytes": 517420,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 505482,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 35409,
+    "recv_bytes": 505482,
+    "send_bytes": 517461
+   },
+   {
+    "stats": {
+     "send_bytes": 547051,
+     "send_bytes_details": {
+      "rate": 12.8
+     },
+     "recv_bytes": 600944,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 48259,
+    "recv_bytes": 600944,
+    "send_bytes": 547092
+   },
+   {
+    "stats": {
+     "send_bytes": 582041,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 568451,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 50743,
+    "recv_bytes": 568492,
+    "send_bytes": 582082
+   },
+   {
+    "stats": {
+     "send_bytes": 522097,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 530248,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 41839,
+    "recv_bytes": 530248,
+    "send_bytes": 522138
+   },
+   {
+    "stats": {
+     "send_bytes": 523140,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 537913,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 56235,
+    "recv_bytes": 537913,
+    "send_bytes": 523181
+   },
+   {
+    "stats": {
+     "send_bytes": 514254,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 505255,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 43297,
+    "recv_bytes": 505296,
+    "send_bytes": 514295
+   },
+   {
+    "stats": {
+     "send_bytes": 499025,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 498209,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.7",
+    "sock_port": 58001,
+    "recv_bytes": 498250,
+    "send_bytes": 499066
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "188",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6924293,
+  "run_queue": 0,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc3-2_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc3-2",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc3-2",
+  "type": "disc",
+  "running": true,
+  "mem_used": 94105600,
+  "mem_used_details": {
+   "rate": -136806.4
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 721,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2128658,
+  "gc_num_details": {
+   "rate": 346.0
+  },
+  "gc_bytes_reclaimed": 6733887808,
+  "gc_bytes_reclaimed_details": {
+   "rate": 1104593.6
+  },
+  "context_switches": 4758852,
+  "context_switches_details": {
+   "rate": 704.2
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 2.333,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 531,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 2,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 66,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.3055151515151515,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 112545302,
+     "send_bytes_details": {
+      "rate": 16069.2
+     },
+     "recv_bytes": 26934693,
+     "recv_bytes_details": {
+      "rate": 3778.0
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 51267,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 26953542,
+    "send_bytes": 112625691
+   },
+   {
+    "stats": {
+     "send_bytes": 579616,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 598233,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 45099,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 598233,
+    "send_bytes": 579657
+   },
+   {
+    "stats": {
+     "send_bytes": 579073,
+     "send_bytes_details": {
+      "rate": 12.8
+     },
+     "recv_bytes": 649434,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 45721,
+    "recv_bytes": 649434,
+    "send_bytes": 579114
+   },
+   {
+    "stats": {
+     "send_bytes": 557113,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 577675,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 55765,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 577716,
+    "send_bytes": 557154
+   },
+   {
+    "stats": {
+     "send_bytes": 607657,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 653868,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 39203,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 653868,
+    "send_bytes": 607698
+   },
+   {
+    "stats": {
+     "send_bytes": 511460,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 565127,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 44427,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 565127,
+    "send_bytes": 511501
+   },
+   {
+    "stats": {
+     "send_bytes": 505255,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 514254,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 43297,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 514295,
+    "send_bytes": 505296
+   },
+   {
+    "stats": {
+     "send_bytes": 505973,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 537680,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-3",
+    "peer_addr": "172.50.0.13",
+    "peer_port": 35537,
+    "sock_addr": "172.50.0.10",
+    "sock_port": 25672,
+    "recv_bytes": 537721,
+    "send_bytes": 506014
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ },
+ {
+  "partitions": [],
+  "os_pid": "201",
+  "fd_total": 1024,
+  "sockets_total": 829,
+  "mem_limit": 223346688,
+  "mem_alarm": false,
+  "disk_free_limit": 1000000000,
+  "disk_free_alarm": false,
+  "proc_total": 1048576,
+  "rates_mode": "basic",
+  "uptime": 6926303,
+  "run_queue": 1,
+  "processors": 2,
+  "exchange_types": [
+   {
+    "name": "topic",
+    "description": "AMQP topic exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "headers",
+    "description": "AMQP headers exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "x-federation-upstream",
+    "description": "Federation upstream helper exchange",
+    "internal_purpose": "federation",
+    "enabled": true
+   },
+   {
+    "name": "direct",
+    "description": "AMQP direct exchange, as per the AMQP specification",
+    "enabled": true
+   },
+   {
+    "name": "fanout",
+    "description": "AMQP fanout exchange, as per the AMQP specification",
+    "enabled": true
+   }
+  ],
+  "auth_mechanisms": [
+   {
+    "name": "AMQPLAIN",
+    "description": "QPid AMQPLAIN mechanism",
+    "enabled": true
+   },
+   {
+    "name": "RABBIT-CR-DEMO",
+    "description": "RabbitMQ Demo challenge-response authentication mechanism",
+    "enabled": false
+   },
+   {
+    "name": "PLAIN",
+    "description": "SASL PLAIN authentication mechanism",
+    "enabled": true
+   }
+  ],
+  "applications": [
+   {
+    "name": "amqp10_client",
+    "description": "AMQP 1.0 client from the RabbitMQ Project",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp10_common",
+    "description": "Modules shared by rabbitmq-amqp1.0 and rabbitmq-amqp1.0-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "amqp_client",
+    "description": "RabbitMQ AMQP Client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "asn1",
+    "description": "The Erlang ASN1 compiler version 5.0.9",
+    "version": "5.0.9"
+   },
+   {
+    "name": "compiler",
+    "description": "ERTS  CXC 138 10",
+    "version": "7.4.4"
+   },
+   {
+    "name": "cowboy",
+    "description": "Small, fast, modern HTTP server.",
+    "version": "2.6.1"
+   },
+   {
+    "name": "cowlib",
+    "description": "Support library for manipulating Web protocols.",
+    "version": "2.7.0"
+   },
+   {
+    "name": "crypto",
+    "description": "CRYPTO",
+    "version": "4.5.1"
+   },
+   {
+    "name": "goldrush",
+    "description": "Erlang event stream processor",
+    "version": "0.1.9"
+   },
+   {
+    "name": "inets",
+    "description": "INETS  CXC 138 49",
+    "version": "7.0.9"
+   },
+   {
+    "name": "jsx",
+    "description": "a streaming, evented json parsing toolkit",
+    "version": "2.9.0"
+   },
+   {
+    "name": "kernel",
+    "description": "ERTS  CXC 138 10",
+    "version": "6.4.1"
+   },
+   {
+    "name": "lager",
+    "description": "Erlang logging framework",
+    "version": "3.6.10"
+   },
+   {
+    "name": "mnesia",
+    "description": "MNESIA  CXC 138 12",
+    "version": "4.16"
+   },
+   {
+    "name": "observer_cli",
+    "description": "Visualize Erlang Nodes On The Command Line",
+    "version": "1.5.0"
+   },
+   {
+    "name": "os_mon",
+    "description": "CPO  CXC 138 46",
+    "version": "2.5"
+   },
+   {
+    "name": "public_key",
+    "description": "Public key infrastructure",
+    "version": "1.6.7"
+   },
+   {
+    "name": "rabbit",
+    "description": "RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbit_common",
+    "description": "Modules shared by rabbitmq-server and rabbitmq-erlang-client",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation",
+    "description": "RabbitMQ Federation",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_federation_management",
+    "description": "RabbitMQ Federation Management",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management",
+    "description": "RabbitMQ Management Console",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_management_agent",
+    "description": "RabbitMQ Management Agent",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_common",
+    "description": "Modules shared by various peer discovery backends",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_peer_discovery_consul",
+    "description": "Consult-based RabbitMQ peer discovery backend",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel",
+    "description": "Data Shovel for RabbitMQ",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_shovel_management",
+    "description": "Management extension for the Shovel plugin",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_top",
+    "description": "RabbitMQ Top",
+    "version": "3.7.17"
+   },
+   {
+    "name": "rabbitmq_web_dispatch",
+    "description": "RabbitMQ Web Dispatcher",
+    "version": "3.7.17"
+   },
+   {
+    "name": "ranch",
+    "description": "Socket acceptor pool for TCP protocols.",
+    "version": "1.7.1"
+   },
+   {
+    "name": "recon",
+    "description": "Diagnostic tools for production use",
+    "version": "2.5.0"
+   },
+   {
+    "name": "sasl",
+    "description": "SASL  CXC 138 11",
+    "version": "3.4"
+   },
+   {
+    "name": "ssl",
+    "description": "Erlang/OTP SSL application",
+    "version": "9.3.5"
+   },
+   {
+    "name": "stdlib",
+    "description": "ERTS  CXC 138 10",
+    "version": "3.9.2"
+   },
+   {
+    "name": "stdout_formatter",
+    "description": "Tools to format paragraphs, lists and tables as plain text",
+    "version": "0.2.2"
+   },
+   {
+    "name": "syntax_tools",
+    "description": "Syntax tools",
+    "version": "2.2"
+   },
+   {
+    "name": "sysmon_handler",
+    "description": "Rate-limiting system_monitor event handler",
+    "version": "1.1.0"
+   },
+   {
+    "name": "xmerl",
+    "description": "XML parser",
+    "version": "1.3.21"
+   }
+  ],
+  "contexts": [
+   {
+    "description": "RabbitMQ Management",
+    "path": "/",
+    "cowboy_opts": "[{sendfile,false}]",
+    "ip": "::",
+    "port": "15672"
+   }
+  ],
+  "log_files": [
+   "/var/log/rabbitmq/rabbit@rabbit-dc3-3_upgrade.log",
+   "<stdout>"
+  ],
+  "db_dir": "/var/lib/rabbitmq/rabbit@rabbit-dc3-3",
+  "config_files": [
+   "/etc/rabbitmq/rabbitmq.config"
+  ],
+  "net_ticktime": 60,
+  "enabled_plugins": [
+   "rabbitmq_federation",
+   "rabbitmq_federation_management",
+   "rabbitmq_management",
+   "rabbitmq_management_agent",
+   "rabbitmq_peer_discovery_consul",
+   "rabbitmq_shovel",
+   "rabbitmq_shovel_management",
+   "rabbitmq_top"
+  ],
+  "mem_calculation_strategy": "rss",
+  "name": "rabbit@rabbit-dc3-3",
+  "type": "disc",
+  "running": true,
+  "mem_used": 104591360,
+  "mem_used_details": {
+   "rate": -173670.4
+  },
+  "fd_used": 48,
+  "fd_used_details": {
+   "rate": 0.0
+  },
+  "sockets_used": 0,
+  "sockets_used_details": {
+   "rate": 0.0
+  },
+  "proc_used": 773,
+  "proc_used_details": {
+   "rate": 0.0
+  },
+  "disk_free": 47975047168,
+  "disk_free_details": {
+   "rate": 0.0
+  },
+  "gc_num": 2635592,
+  "gc_num_details": {
+   "rate": 425.6
+  },
+  "gc_bytes_reclaimed": 7011678760,
+  "gc_bytes_reclaimed_details": {
+   "rate": 1064987.2
+  },
+  "context_switches": 5368926,
+  "context_switches_details": {
+   "rate": 801.6
+  },
+  "io_read_count": 1,
+  "io_read_count_details": {
+   "rate": 0.0
+  },
+  "io_read_bytes": 1,
+  "io_read_bytes_details": {
+   "rate": 0.0
+  },
+  "io_read_avg_time": 16.238,
+  "io_read_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_write_count": 0,
+  "io_write_count_details": {
+   "rate": 0.0
+  },
+  "io_write_bytes": 0,
+  "io_write_bytes_details": {
+   "rate": 0.0
+  },
+  "io_write_avg_time": 0.0,
+  "io_write_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_sync_count": 0,
+  "io_sync_count_details": {
+   "rate": 0.0
+  },
+  "io_sync_avg_time": 0.0,
+  "io_sync_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_seek_count": 0,
+  "io_seek_count_details": {
+   "rate": 0.0
+  },
+  "io_seek_avg_time": 0.0,
+  "io_seek_avg_time_details": {
+   "rate": 0.0
+  },
+  "io_reopen_count": 0,
+  "io_reopen_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_ram_tx_count": 550,
+  "mnesia_ram_tx_count_details": {
+   "rate": 0.0
+  },
+  "mnesia_disk_tx_count": 2,
+  "mnesia_disk_tx_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_read_count": 0,
+  "msg_store_read_count_details": {
+   "rate": 0.0
+  },
+  "msg_store_write_count": 0,
+  "msg_store_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_journal_write_count": 0,
+  "queue_index_journal_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_write_count": 0,
+  "queue_index_write_count_details": {
+   "rate": 0.0
+  },
+  "queue_index_read_count": 0,
+  "queue_index_read_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_count": 60,
+  "io_file_handle_open_attempt_count_details": {
+   "rate": 0.0
+  },
+  "io_file_handle_open_attempt_avg_time": 0.20273333333333332,
+  "io_file_handle_open_attempt_avg_time_details": {
+   "rate": 0.0
+  },
+  "connection_created": 9,
+  "connection_created_details": {
+   "rate": 0.0
+  },
+  "connection_closed": 18,
+  "connection_closed_details": {
+   "rate": 0.0
+  },
+  "channel_created": 9,
+  "channel_created_details": {
+   "rate": 0.0
+  },
+  "channel_closed": 9,
+  "channel_closed_details": {
+   "rate": 0.0
+  },
+  "queue_declared": 276,
+  "queue_declared_details": {
+   "rate": 0.0
+  },
+  "queue_created": 268,
+  "queue_created_details": {
+   "rate": 0.0
+  },
+  "queue_deleted": 173,
+  "queue_deleted_details": {
+   "rate": 0.0
+  },
+  "cluster_links": [
+   {
+    "stats": {
+     "send_bytes": 106268731,
+     "send_bytes_details": {
+      "rate": 15264.4
+     },
+     "recv_bytes": 26926014,
+     "recv_bytes_details": {
+      "rate": 3769.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-1",
+    "peer_addr": "172.50.0.5",
+    "peer_port": 60923,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 25672,
+    "recv_bytes": 26926014,
+    "send_bytes": 106268731
+   },
+   {
+    "stats": {
+     "send_bytes": 527976,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 535568,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc1-2",
+    "peer_addr": "172.50.0.8",
+    "peer_port": 48525,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 25672,
+    "recv_bytes": 535568,
+    "send_bytes": 527976
+   },
+   {
+    "stats": {
+     "send_bytes": 651687,
+     "send_bytes_details": {
+      "rate": 12.8
+     },
+     "recv_bytes": 706531,
+     "recv_bytes_details": {
+      "rate": 42.8
+     }
+    },
+    "name": "rabbit@rabbit-dc1-3",
+    "peer_addr": "172.50.0.11",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 55375,
+    "recv_bytes": 706531,
+    "send_bytes": 651687
+   },
+   {
+    "stats": {
+     "send_bytes": 561774,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 560371,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-1",
+    "peer_addr": "172.50.0.6",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 34735,
+    "recv_bytes": 560371,
+    "send_bytes": 561774
+   },
+   {
+    "stats": {
+     "send_bytes": 564782,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 571568,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-2",
+    "peer_addr": "172.50.0.9",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 58487,
+    "recv_bytes": 571568,
+    "send_bytes": 564782
+   },
+   {
+    "stats": {
+     "send_bytes": 607293,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 646755,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc2-3",
+    "peer_addr": "172.50.0.12",
+    "peer_port": 50199,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 25672,
+    "recv_bytes": 646755,
+    "send_bytes": 607293
+   },
+   {
+    "stats": {
+     "send_bytes": 498209,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 499066,
+     "recv_bytes_details": {
+      "rate": 8.2
+     }
+    },
+    "name": "rabbit@rabbit-dc3-1",
+    "peer_addr": "172.50.0.7",
+    "peer_port": 58001,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 25672,
+    "recv_bytes": 499066,
+    "send_bytes": 498209
+   },
+   {
+    "stats": {
+     "send_bytes": 537680,
+     "send_bytes_details": {
+      "rate": 0.0
+     },
+     "recv_bytes": 505973,
+     "recv_bytes_details": {
+      "rate": 0.0
+     }
+    },
+    "name": "rabbit@rabbit-dc3-2",
+    "peer_addr": "172.50.0.10",
+    "peer_port": 25672,
+    "sock_addr": "172.50.0.13",
+    "sock_port": 35537,
+    "recv_bytes": 505973,
+    "send_bytes": 537680
+   }
+  ],
+  "metrics_gc_queue_length": {
+   "connection_closed": 0,
+   "channel_closed": 0,
+   "consumer_deleted": 0,
+   "exchange_deleted": 0,
+   "queue_deleted": 0,
+   "vhost_deleted": 0,
+   "node_node_deleted": 0,
+   "channel_consumer_deleted": 0
+  }
+ }
+]
