@@ -61,17 +61,16 @@ class RabbitData:
             policy_on_queue = queue.get("policy")
 
             if not policy_on_queue or queue_name != policy_on_queue:
-                policy = None
                 try:
-                    policy = self.client.get_policy(
-                        queue_vhost, queue_name
-                    ).get("name")
+                    self.client.get_policy(queue_vhost, queue_name).get("name")
                 except HTTPError as er:
                     log.debug(er)
-                if not policy:
-                    queues_list.append(
-                        QueueWithoutPolicy(vhost=queue_vhost, name=queue_name)
-                    )
+                    if er.status == 404:
+                        queues_list.append(
+                            QueueWithoutPolicy(
+                                vhost=queue_vhost, name=queue_name
+                            )
+                        )
 
         return queues_list
 
