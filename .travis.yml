@@ -1,0 +1,24 @@
+dist: xenial
+language: python
+python: 3.7
+before_install:
+- sudo apt-get install -y ruby ruby-dev rubygems build-essential libffi-dev devscripts
+  libsystemd-dev
+- sudo gem install -n /usr/local/bin --no-ri --no-rdoc fpm
+addons:
+  apt:
+    update: true
+install:
+- pip install virtualenv sh plumbum
+script:
+#- sudo /home/travis//virtualenv/python3.7/bin/virtualenv /usr/share/python3/rabbitmq_policymaker
+#- sudo /home/travis//virtualenv/python3.7/bin/pip3 install -U pip
+- sudo /home/travis//virtualenv/python3.7/bin/python3 package/make-deb.py
+deploy:
+  provider: bintray
+  file: "./package/descriptor.json"
+  user:
+    secure: WVHjp5Gfu2HAn0Nq9VmLORsyV/3aoztJy+iH5r7X3AxhL9phElwnwlHEQscgyk0hf9ZPwKQYxgrDy5fh5jUOU9H6X5tFhmHXJB5D0Sc7IEVidSKNedv7nosrUUf2iO5e/3uAm2DR7TPZQcnrfNm6lgeF+RW2C1BNnMm50OkECgw0ZXYUkAop42FRqIcbL5ZNEAzCzggerF8iqOEhot9bfgBLVMaiDUx7+ly5i5gVi/4OvV4XSY3dqknWNMe2efZP/DGscXJDa29VVbke8KrYF6osiIlG8YqMnBkGgGeHTugFmLsCaY7CK9zYpRu12Ijrk+AA0bGgNBoMVr6LdVWUiItcRr2ZTzGj1Z4Mg7/F/08GNCShSVpiEs+OGJwSrGd5qHJxeaSWwdKoOxYuNbIuhI6cOV9KuYDewfiFuz5Tvk+S1E97COkf0fo9sS7AJvYEMPVFETkPDakyO2nSPy3fB8gwLdIskK+6i47UMHGNneLaEpMIki71I/WEsfI6QJiabOoE4CdHkmjFT503yGbnbTdKSIBCXmBtuUaZn1yqYM7yp5NZJN39Qg7DP+VVZ7+OAqhsvRBbBvrLWlsOAO9FmxMO3ilqOc3H6dhoYDABj1WDWDk+2At3d58uBkvCej4jkVozalNcXc96L5bQNiCTZ78HP1W1yCOJWjhv6tpKiBI=
+  key:
+    secure: M5lWFZtnx15X5D5O8POCbpt3M1wync5cqNbpSU0RLK8fZWHEjhsKe0hKR47N65VviYS0pwqw6C+P5D8NOhN9ZMm9CMXAAVHCB36jPYVudqlymj+bFN03EablKCfNWkvkcCvg6QaOgBsYLpL9/XFza91yOO8/W1QIugM+6nK7FN0Cod3F7kgAJkF1emw5WFLUbsaWFDKdNNSkR+UPHi3gA9/0HifAgCrxd8XYs3ZuXnS/QoGjbMcHACJPgu3/IKEpZsn9peDZvGB5lo7kYT45AXNbul6WwIAbE8S95gmpgSlttLpn9sGxL1wIx9gRDkVmwWVVTCqf5VfF61wdNKom4hakiY/TVIwx9potjioN/JM1sQqeKr9jsZEO/Hv9046ldbmsT7boWAjnTafQh9cgaB2oApDj3Kl4kIEXhIfNr2ApvHS7F1u4Rz5Q1hpBtYXXvBq2GvUMtQRdOJXwEKx71lZXvJzgCGgkfmAYjSzTSkQKyPve7GkI3we4D7xSzOJ9WftgtAJTbiNkrhHvSaDBBoPti0KxiJNV7zYKY7U8xD56fB4uUwBztgNrHqV0IIH1f1qC+qiDo7jwzkNTkul/sjRataVR2p8rVtvhz2VXoII73NroO5kG3CMnGFyU4QnmKqEFFEyHNc7/SsJC8Dxr7K0pHEE84bFYGC3ELkdf8rs=
+  skip_cleanup: true

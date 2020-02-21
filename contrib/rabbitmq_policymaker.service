@@ -1,0 +1,23 @@
+[Unit]
+Description=Policy creation service for HA RabbitMQ
+Documentation=https://github.com/asteny/rabbitmq-policymaker
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+
+Restart=always
+RestartSec=5
+
+TimeoutStartSec=5
+TimeoutStopSec=10
+
+EnvironmentFile=-/etc/default/rabbitmq_policymaker
+
+PIDFile=/var/run/rabbitmq_policymaker.pid
+ExecStart=/usr/bin/docker-heal $CMD_OPTS
+
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT

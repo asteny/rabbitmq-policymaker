@@ -6,7 +6,7 @@ from typing import List
 import pytest
 from pyrabbit2.http import HTTPError
 
-from rabbitmq_polycymaker.rabbitmq_policy import (
+from rabbitmq_policymaker.rabbitmq_policy import (
     RabbitData,
     bucket,
     QueueWithoutPolicy,
