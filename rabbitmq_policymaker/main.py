@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 
-import logging
 import json
+import logging
 from time import sleep
+
 from configargparse import ArgumentParser
 from prettylog import basic_config, LogFormat
-from yarl import URL
 from pyrabbit2.api import Client
-from rabbitmq_polycymaker.rabbitmq_policy import RabbitData
-from rabbitmq_polycymaker.wait_for_client import wait_for_client
+from yarl import URL
+
+from rabbitmq_policymaker.rabbitmq_policy import RabbitData
+from rabbitmq_policymaker.wait_for_client import wait_for_client
 
 parser = ArgumentParser(auto_env_var_prefix="AMQP_")
 
@@ -58,7 +60,8 @@ arguments = parser.parse_args()
 
 log = logging.getLogger()
 
-if __name__ == "__main__":
+
+def main():
     basic_config(
         level=arguments.log_level.upper(),
         buffered=False,
@@ -71,7 +74,10 @@ if __name__ == "__main__":
     log.debug("RabbitMQ alive")
 
     rabbit_info = RabbitData(
-        client, arguments.policy_groups, arguments.dry_run, arguments.wait_sleep
+        client,
+        arguments.policy_groups,
+        arguments.dry_run,
+        arguments.wait_sleep,
     )
 
     queues_without_policy = rabbit_info.queues_without_policy
@@ -85,3 +91,7 @@ if __name__ == "__main__":
     log.info("Queues on nodes: %r", rabbit_info.calculate_queues_on_hosts)
     log.info("Sleeping for %r seconds", arguments.sleep)
     sleep(arguments.sleep)
+
+
+if __name__ == "__main__":
+    main()

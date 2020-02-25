@@ -1,0 +1,19 @@
+dist: xenial
+
+services:
+  - docker
+
+before_install:
+- docker pull asteny/fpm-python-docker
+
+script:
+- docker run -ti -v $(pwd):/rabbitmq-policymaker asteny/fpm-python-docker:3.7 /bin/sh -c "cd /rabbitmq-policymaker; . /home/env/bin/activate; python package/make-deb.py"
+- ls -la package/
+deploy:
+  provider: bintray
+  file: "./package/descriptor.json"
+  user:
+    secure: WVHjp5Gfu2HAn0Nq9VmLORsyV/3aoztJy+iH5r7X3AxhL9phElwnwlHEQscgyk0hf9ZPwKQYxgrDy5fh5jUOU9H6X5tFhmHXJB5D0Sc7IEVidSKNedv7nosrUUf2iO5e/3uAm2DR7TPZQcnrfNm6lgeF+RW2C1BNnMm50OkECgw0ZXYUkAop42FRqIcbL5ZNEAzCzggerF8iqOEhot9bfgBLVMaiDUx7+ly5i5gVi/4OvV4XSY3dqknWNMe2efZP/DGscXJDa29VVbke8KrYF6osiIlG8YqMnBkGgGeHTugFmLsCaY7CK9zYpRu12Ijrk+AA0bGgNBoMVr6LdVWUiItcRr2ZTzGj1Z4Mg7/F/08GNCShSVpiEs+OGJwSrGd5qHJxeaSWwdKoOxYuNbIuhI6cOV9KuYDewfiFuz5Tvk+S1E97COkf0fo9sS7AJvYEMPVFETkPDakyO2nSPy3fB8gwLdIskK+6i47UMHGNneLaEpMIki71I/WEsfI6QJiabOoE4CdHkmjFT503yGbnbTdKSIBCXmBtuUaZn1yqYM7yp5NZJN39Qg7DP+VVZ7+OAqhsvRBbBvrLWlsOAO9FmxMO3ilqOc3H6dhoYDABj1WDWDk+2At3d58uBkvCej4jkVozalNcXc96L5bQNiCTZ78HP1W1yCOJWjhv6tpKiBI=
+  key:
+    secure: LsBAS6LZGYq8tR1E4BH9hyzCG1k+IBHpaE66VOarnlqcHFHw9dTc3jSHg0tvvtqJn6wxHWivi9Oc+E+wkS59s30XufxeDhpwj+NEu1uCs8yBmdH5k/UljJaU4NVifJPlA3OKsUTab7aE5Ws1rkKIylER0fu2LVBFXV2TmFmwv0to2z350BCAOH//olmcWPMPSEaxM/4ea12A5C/hi6bhlXvuribxf6tF/UCxfLjrgT7CIGpnUyN4O5X5oyA4P1cFM1hc67P+BqeWVVOXkrD7PbWr8Na6UL6kSBuxA8pY4y0q7AgSco+NvZ/lzdtmYFCcg5ZDN5Jh/5gZeer31LZ9cRkMC8pzuz1v8/5kmBBBrKRoTFbJNg7dcOL0lZN9G7vOyJ/PX8XdJxFnLPjMFW2TbYsdNO298JxMeW+4fhp7eBfyHKdYwHwstNnRszyhEpBiU7c7LTw4na8+TVW+3VUcneS2HrhdPIJld8rDEVRt+Aa1apKjw30NkRq2t6XHmbffQnwbGNL8bjyeWq9MyIDW6QP+zqjndfl2M+DE93Ic2zMyl5oiiZkSQXV+zODTmXgWXSOFcYNUE0ays0RnO5gwW2gu/G16vVqiTb7y+cUqymOQ657tOeTXtt5gBMxu2/FuR83teHjHrU/gXr08qiaSxKPIqiuLdBqYebin1LWGrts=
+  skip_cleanup: true
