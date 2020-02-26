@@ -1,6 +1,3 @@
-[![Deb build Status](https://travis-ci.org/asteny/rabbitmq-policymaker.svg?branch=master)](https://travis-ci.org/asteny/rabbitmq-policymaker)[![Download](https://api.bintray.com/packages/asten/rabbitmq-tools/rabbitmq_policymaker/images/download.svg)](https://bintray.com/asten/rabbitmq-tools/rabbitmq-policymaker/_latestVersion)
-
-
 rabbitmq-policymaker
 ===========
 
