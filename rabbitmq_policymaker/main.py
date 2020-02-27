@@ -2,6 +2,7 @@
 
 import json
 import logging
+import os
 from time import sleep
 
 from configargparse import ArgumentParser
@@ -12,7 +13,10 @@ from yarl import URL
 from rabbitmq_policymaker.rabbitmq_policy import RabbitData
 from rabbitmq_policymaker.wait_for_client import wait_for_client
 
-parser = ArgumentParser(auto_env_var_prefix="AMQP_")
+parser = ArgumentParser(
+    default_config_files=[os.path.join("/etc/rabbitmq_policy.conf")],
+    auto_env_var_prefix="AMQP_",
+)
 
 parser.add_argument("--api-url", type=URL, default="localhost:15672")
 
