@@ -102,7 +102,11 @@ class RabbitData:
         for node in bucket_nodes:
             rabbit_nodes.append("rabbit@{}".format(node))
 
-        definition_dict = {"ha-mode": "nodes", "ha-params": rabbit_nodes}
+        definition_dict = {
+            "ha-mode": "nodes",
+            "ha-params": rabbit_nodes,
+            "queue-mode": "lazy",
+        }
         dict_params = {
             "pattern": "{}{}{}".format("^", escape(queue), "$"),
             "definition": definition_dict,
