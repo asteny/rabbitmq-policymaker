@@ -60,6 +60,22 @@ parser.add_argument(
     "--log-format", choices=LogFormat.choices(), default=LogFormat.stream
 )
 
+parser.add_argument(
+    "--balancing",
+    action="store_true",
+    help="Balancing master queues into policy groups",
+)
+
+parser.add_argument(
+    "--queues-delta",
+    type=int,
+    default=3,
+    help=(
+        "Reasonable delta of queues between max and min numbers of queues"
+        "on node when script do nothing"
+    ),
+)
+
 arguments = parser.parse_args()
 
 log = logging.getLogger()
@@ -82,19 +98,23 @@ def main():
         arguments.policy_groups,
         arguments.dry_run,
         arguments.wait_sleep,
+        arguments.queues_delta,
     )
 
-    queues_without_policy = rabbit_info.queues_without_policy
+    if not arguments.balancing:
+        queues_without_policy = rabbit_info.queues_without_policy
 
-    if len(queues_without_policy) > 0:
-        for queue in queues_without_policy:
-            rabbit_info.create_policy(queue.vhost, queue.name)
+        if len(queues_without_policy) > 0:
+            for queue in queues_without_policy:
+                rabbit_info.create_policy(queue.vhost, queue.name)
+            log.info("Sleeping for %r seconds", arguments.sleep)
+            sleep(arguments.sleep)
+        else:
+            log.info("Nothing to do")
     else:
-        log.info("Nothing to do")
-
-    log.info("Queues on nodes: %r", rabbit_info.calculate_queues_on_hosts)
-    log.info("Sleeping for %r seconds", arguments.sleep)
-    sleep(arguments.sleep)
+        log.info("It's balancing mode")
+        rabbit_info.relocate_queue
+        rabbit_info.queues_on_hosts()
 
 
 if __name__ == "__main__":

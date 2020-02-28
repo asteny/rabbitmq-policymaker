@@ -9,12 +9,13 @@ from pyrabbit2.http import HTTPError
 from rabbitmq_policymaker.rabbitmq_policy import (
     RabbitData,
     bucket,
-    QueueWithoutPolicy,
+    Queue,
 )
 
 POLICY_GROUPS = "tests/data/policy_groups.json"
 DRY_RUN = False
 WAIT_SLEEP = 0
+QUEUES_DELTA = 3
 
 
 def get_json(file):
@@ -23,12 +24,11 @@ def get_json(file):
     return data
 
 
-def get_test_queue_without_policy(file) -> List[QueueWithoutPolicy]:
+def get_test_queue_without_policy(file) -> List[Queue]:
     with open(file, "r") as json_file:
         data = json.load(json_file)
         return [
-            QueueWithoutPolicy(name=tq.get("name"), vhost=tq.get("vhost"))
-            for tq in data
+            Queue(name=tq.get("name"), vhost=tq.get("vhost")) for tq in data
         ]
 
 
@@ -67,7 +67,7 @@ class MockRabbit:
 def test_queue_without_policy(queues, expected):
     client = MockRabbit(queues)
     rabbit_info = RabbitData(
-        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP
+        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP, QUEUES_DELTA
     )
     assert rabbit_info.queues_without_policy == expected
 
@@ -82,11 +82,13 @@ def test_hash_bucket():
     assert m == {0: 340, 1: 328, 2: 332}
 
 
-def test_calculate_queues_on_hosts():
+def test_queues_on_hosts():
     client = MockRabbit("tests/data/get_queues_without_policies.json")
     rabbit_info = RabbitData(
-        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP
+        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP, QUEUES_DELTA
     )
-    assert rabbit_info.calculate_queues_on_hosts == get_json(
-        "tests/data/calculate_queues.json"
-    )
+    calculated_queues = {}
+    for i in rabbit_info.queues_on_hosts():
+        calculated_queues[i.node] = len(i.queues)
+
+    assert calculated_queues == get_json("tests/data/calculate_queues.json")

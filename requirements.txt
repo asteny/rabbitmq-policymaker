@@ -6,7 +6,6 @@ fast-json==0.3.2
 idna==2.9
 multidict==4.7.5
 prettylog==0.3.0
-pyrabbit2==1.0.7
 requests==2.23.0
 ujson==1.35
 urllib3==1.25.8

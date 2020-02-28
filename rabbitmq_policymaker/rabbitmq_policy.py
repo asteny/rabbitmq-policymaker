@@ -21,9 +21,15 @@ def bucket(string, size):
 
 
 @dataclass
-class QueueWithoutPolicy:
+class Queue:
     vhost: str
     name: str
+
+
+@dataclass
+class QueuesOnNode:
+    node: str
+    queues: list
 
 
 class RabbitData:
@@ -33,11 +39,13 @@ class RabbitData:
         policy_groups: Dict,
         dry_run: bool,
         wait_sleep: int,
+        queues_delta: int,
     ):
         self.client = client
         self.policy_groups = policy_groups
         self.dry_run = dry_run
         self.wait_sleep = wait_sleep
+        self.queues_delta = queues_delta
 
     def reload(self):
         self.client.get_vhost_names()
@@ -45,7 +53,7 @@ class RabbitData:
         self.client.get_nodes()
 
     @property
-    def queues_without_policy(self) -> List[QueueWithoutPolicy]:
+    def queues_without_policy(self) -> List[Queue]:
 
         queues_list = []
 
@@ -70,9 +78,7 @@ class RabbitData:
                     log.debug(er)
                     if er.status == 404:
                         queues_list.append(
-                            QueueWithoutPolicy(
-                                vhost=queue_vhost, name=queue_name
-                            )
+                            Queue(vhost=queue_vhost, name=queue_name)
                         )
 
         return queues_list
@@ -80,13 +86,9 @@ class RabbitData:
     def is_queue_running(self, vhost: str, queue: str) -> bool:
         state = None
         while state != RUNNING:
-            try:
-                state = self.client.get_queue(vhost, queue)["state"]
-                log.info("Queue %r has state %r", queue, state)
-                if state != RUNNING:
-                    sleep(self.wait_sleep)
-            except KeyError:
-                log.exception("RabbitMQ API not ready to answer")
+            state = self.client.get_queue(vhost, queue).get("state")
+            log.info("Queue %r has state %r", queue, state)
+            if state != RUNNING:
                 sleep(self.wait_sleep)
         return True
 
@@ -128,19 +130,15 @@ class RabbitData:
                 "It's a dry run mode: Policy body dict will be %r", dict_params
             )
 
-    @property
-    def calculate_queues_on_hosts(self) -> Dict[str, int]:
-        """
-        :return: dict {node1: number_queues, node2: number_queues,}
-        """
-
-        calculated_dict = {}
-
+    def queues_on_hosts(self) -> Dict[str, int]:
         nodes = self.client.get_nodes()
         queues = self.client.get_queues()
 
+        queues_on_host_list = []
+
         for node in nodes:
             node_name = node.get("name")
+            queues_on_host = []
             for queue in queues:
                 exclusive = queue.get("exclusive")
                 auto_delete = queue.get("auto_delete")
@@ -148,10 +146,91 @@ class RabbitData:
                 if exclusive or auto_delete:
                     continue
 
+                queue_name = queue.get("name")
+                queue_vhost = queue.get("vhost")
                 queue_node = queue.get("node")
-                if node_name == queue_node:
-                    calculated_dict[node_name] = (
-                        calculated_dict.setdefault(node_name, 0) + 1
-                    )
 
-        return calculated_dict
+                if node_name == queue_node:
+                    queues_on_host.append(
+                        Queue(vhost=queue_vhost, name=queue_name)
+                    )
+            log.info(
+                "Node '{}' has {} queues".format(
+                    node_name, len(queues_on_host)
+                )
+            )
+            queues_on_host_list.append(
+                QueuesOnNode(node=node_name, queues=queues_on_host)
+            )
+        return queues_on_host_list
+
+    def queues_for_relocate(self):
+        queues_on_hosts = self.queues_on_hosts()
+        for group in self.policy_groups.values():
+            calculated_queues = {}
+            for rabbit in self.queues_on_hosts():
+                if rabbit.node.split("@")[1] in group:
+                    calculated_queues[rabbit.node] = len(rabbit.queues)
+            min_queues_node = min(calculated_queues, key=calculated_queues.get)
+            max_queues_node = max(calculated_queues, key=calculated_queues.get)
+            log.info(
+                "Max queues on '{}'. Min queues on '{}'".format(
+                    max_queues_node, min_queues_node
+                )
+            )
+            if (
+                calculated_queues[max_queues_node]
+                - calculated_queues[min_queues_node]
+                > self.queues_delta
+            ):
+                for rabbit in queues_on_hosts:
+                    if rabbit.node == max_queues_node:
+                        queue = rabbit.queues[0].name
+                        vhost = rabbit.queues[0].vhost
+
+                        return queue, vhost, min_queues_node
+
+    @property
+    def relocate_queue(self):
+        if self.queues_for_relocate():
+            queue, vhost, min_queues_node = self.queues_for_relocate()
+
+            definition_dict = {
+                "ha-mode": "nodes",
+                "ha-params": min_queues_node.split(" "),
+            }
+            dict_params = {
+                "pattern": "{}{}{}".format("^", escape(queue), "$"),
+                "definition": definition_dict,
+                "priority": 999,
+                "apply-to": "queues",
+            }
+            log.info(
+                "Relocate queue '{}'. Policy body dict is {}".format(
+                    queue, dict_params
+                )
+            )
+
+            if not self.dry_run:
+                self.client.create_policy(
+                    vhost=vhost,
+                    policy_name="queue_master_balancer",
+                    **dict_params
+                )
+                sleep(self.wait_sleep)
+                self.client.queue_action(vhost, queue, action="sync")
+                sleep(self.wait_sleep)
+                self.is_queue_running(vhost, queue)
+                self.client.queue_action(vhost, queue, action="sync")
+                sleep(self.wait_sleep)
+                log.info("Deleting relocate policy")
+                self.client.delete_policy(vhost, "queue_master_balancer")
+                sleep(self.wait_sleep)
+                self.client.queue_action(vhost, queue, action="sync")
+                sleep(self.wait_sleep)
+                self.is_queue_running(vhost, queue)
+            else:
+                log.info("It's dry run. Nothing changed")
+
+        else:
+            log.info("Nothing for balance")
