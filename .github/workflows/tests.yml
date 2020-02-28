@@ -24,7 +24,7 @@ jobs:
         pylama rabbitmq_policymaker tests
     - name: Black
       run: |
-        black -l 80 . --check
+        black -l 79 . --check
     - name: Test with pytest
       run: |
         pytest --cov rabbitmq-policymaker tests
