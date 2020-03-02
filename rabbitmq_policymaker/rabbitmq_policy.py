@@ -118,7 +118,7 @@ class RabbitData:
 
         if not self.dry_run:
             log.info("Policy body dict is %r", dict_params)
-            self.client.create_policy(
+            policy = self.client.create_policy(
                 vhost=vhost, policy_name=queue, **dict_params
             )
             sleep(self.wait_sleep)
@@ -129,8 +129,9 @@ class RabbitData:
             log.info(
                 "It's a dry run mode: Policy body dict will be %r", dict_params
             )
+        return policy
 
-    def queues_on_hosts(self) -> Dict[str, int]:
+    def queues_on_hosts(self) -> List[QueuesOnNode]:
         nodes = self.client.get_nodes()
         queues = self.client.get_queues()
 
@@ -190,7 +191,6 @@ class RabbitData:
 
                         return queue, vhost, min_queues_node
 
-    @property
     def relocate_queue(self):
         if self.queues_for_relocate():
             queue, vhost, min_queues_node = self.queues_for_relocate()

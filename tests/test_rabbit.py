@@ -2,6 +2,7 @@
 
 import json
 from typing import List
+from unittest.mock import Mock
 
 import pytest
 from pyrabbit2.http import HTTPError
@@ -51,6 +52,13 @@ class MockRabbit:
             status=404,
         )
 
+    def get_queue(self, vhost, queue):
+        return {"state": "running"}
+
+    def create_policy(self, vhost, policy_name, **dict_params):
+        mock = Mock(return_value=201)
+        return mock()
+
 
 @pytest.mark.parametrize(
     "queues,expected",
@@ -92,3 +100,23 @@ def test_queues_on_hosts():
         calculated_queues[i.node] = len(i.queues)
 
     assert calculated_queues == get_json("tests/data/calculate_queues.json")
+
+
+def test_create_policy():
+    client = MockRabbit("tests/data/get_queues_without_policies.json")
+    rabbit_info = RabbitData(
+        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP, QUEUES_DELTA
+    )
+    assert rabbit_info.create_policy("/", "test") == 201
+
+
+def test_queues_for_relocate():
+    client = MockRabbit("tests/data/get_queues_without_policies.json")
+    rabbit_info = RabbitData(
+        client, get_json(POLICY_GROUPS), DRY_RUN, WAIT_SLEEP, QUEUES_DELTA
+    )
+    assert rabbit_info.queues_for_relocate() == (
+        "aliveness-test",
+        "/",
+        "rabbit@rabbit-dc3-1",
+    )

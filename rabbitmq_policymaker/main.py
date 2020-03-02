@@ -113,7 +113,7 @@ def main():
             log.info("Nothing to do")
     else:
         log.info("It's balancing mode")
-        rabbit_info.relocate_queue
+        rabbit_info.relocate_queue()
         rabbit_info.queues_on_hosts()
 
 
