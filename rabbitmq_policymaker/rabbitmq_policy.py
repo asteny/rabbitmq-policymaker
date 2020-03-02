@@ -192,8 +192,9 @@ class RabbitData:
                         return queue, vhost, min_queues_node
 
     def relocate_queue(self):
-        if self.queues_for_relocate():
-            queue, vhost, min_queues_node = self.queues_for_relocate()
+        queue_data = self.queues_for_relocate()
+        if queue_data:
+            queue, vhost, min_queues_node = queue_data
 
             definition_dict = {
                 "ha-mode": "nodes",
