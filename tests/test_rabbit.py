@@ -2,7 +2,6 @@
 
 import json
 from typing import List
-from unittest.mock import Mock
 
 import pytest
 from pyrabbit2.http import HTTPError
@@ -56,8 +55,7 @@ class MockRabbit:
         return {"state": "running"}
 
     def create_policy(self, vhost, policy_name, **dict_params):
-        mock = Mock(return_value=201)
-        return mock()
+        return 201
 
 
 @pytest.mark.parametrize(

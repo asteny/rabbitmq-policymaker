@@ -27,7 +27,7 @@ class Queue:
 
 
 @dataclass
-class QueuesOnNode:
+class Node:
     node: str
     queues: list
 
@@ -131,7 +131,7 @@ class RabbitData:
             )
         return policy
 
-    def queues_on_hosts(self) -> List[QueuesOnNode]:
+    def queues_on_hosts(self) -> List[Node]:
         nodes = self.client.get_nodes()
         queues = self.client.get_queues()
 
@@ -161,7 +161,7 @@ class RabbitData:
                 )
             )
             queues_on_host_list.append(
-                QueuesOnNode(node=node_name, queues=queues_on_host)
+                Node(node=node_name, queues=queues_on_host)
             )
         return queues_on_host_list
 
