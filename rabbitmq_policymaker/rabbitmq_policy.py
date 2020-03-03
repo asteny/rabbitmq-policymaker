@@ -13,6 +13,7 @@ from pyrabbit2.http import HTTPError
 log = logging.getLogger()
 
 RUNNING = "running"
+QUEUE_BALANCER_POLICY_NAME = "queue_master_balancer"
 
 
 def bucket(string, size):
@@ -215,7 +216,7 @@ class RabbitData:
             if not self.dry_run:
                 self.client.create_policy(
                     vhost=vhost,
-                    policy_name="queue_master_balancer",
+                    policy_name=QUEUE_BALANCER_POLICY_NAME,
                     **dict_params
                 )
                 self.is_queue_running(vhost, queue)
