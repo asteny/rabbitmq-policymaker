@@ -218,17 +218,15 @@ class RabbitData:
                     policy_name="queue_master_balancer",
                     **dict_params
                 )
-                sleep(self.wait_sleep)
-                self.client.queue_action(vhost, queue, action="sync")
-                sleep(self.wait_sleep)
                 self.is_queue_running(vhost, queue)
                 self.client.queue_action(vhost, queue, action="sync")
-                sleep(self.wait_sleep)
+                self.is_queue_running(vhost, queue)
+                self.client.queue_action(vhost, queue, action="sync")
+                self.is_queue_running(vhost, queue)
                 log.info("Deleting relocate policy")
                 self.client.delete_policy(vhost, "queue_master_balancer")
-                sleep(self.wait_sleep)
+                self.is_queue_running(vhost, queue)
                 self.client.queue_action(vhost, queue, action="sync")
-                sleep(self.wait_sleep)
                 self.is_queue_running(vhost, queue)
             else:
                 log.info("It's dry run. Nothing changed")
