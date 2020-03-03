@@ -3,6 +3,7 @@
 import logging
 from dataclasses import dataclass
 from hashlib import sha1
+from http import HTTPStatus
 from re import escape
 from time import sleep
 from typing import Dict, List
@@ -16,7 +17,7 @@ RUNNING = "running"
 QUEUE_BALANCER_POLICY_NAME = "queue_master_balancer"
 
 
-def bucket(string, size):
+def get_bucket(string, size):
     hs = int(sha1(string.encode("utf-8")).hexdigest(), 16)
     return hs % size
 
@@ -33,12 +34,13 @@ class Node:
     queues: list
 
 
-class RabbitData:
+class RabbitInfo:
     def __init__(
         self,
+        *,
         client: Client,
         policy_groups: Dict,
-        dry_run: bool,
+        dry_run: bool = False,
         wait_sleep: int,
         queues_delta: int,
     ):
@@ -74,10 +76,10 @@ class RabbitData:
                     policy = self.client.get_policy(
                         queue_vhost, queue_name
                     ).get("name")
-                    log.debug("Policy: '{}' exist".format(policy))
+                    log.debug("Policy: '%r' exist", policy)
                 except HTTPError as er:
                     log.debug(er)
-                    if er.status == 404:
+                    if er.status == HTTPStatus.NOT_FOUND:
                         queues_list.append(
                             Queue(vhost=queue_vhost, name=queue_name)
                         )
@@ -95,15 +97,13 @@ class RabbitData:
 
     def create_policy(self, vhost: str, queue: str):
 
-        bucket_number = bucket(
-            "{}{}".format(vhost, queue), len(self.policy_groups)
-        )
+        bucket_number = get_bucket(f"{vhost}{queue}", len(self.policy_groups))
         bucket_nodes = self.policy_groups.get(str(bucket_number))
 
         rabbit_nodes = []
 
         for node in bucket_nodes:
-            rabbit_nodes.append("rabbit@{}".format(node))
+            rabbit_nodes.append(f"rabbit@{node}")
 
         definition_dict = {
             "ha-mode": "nodes",
@@ -111,25 +111,27 @@ class RabbitData:
             "queue-mode": "lazy",
         }
         dict_params = {
-            "pattern": "{}{}{}".format("^", escape(queue), "$"),
+            "pattern": f"^{escape(queue)}$",
             "definition": definition_dict,
             "priority": 30,
             "apply-to": "queues",
         }
 
-        if not self.dry_run:
-            log.info("Policy body dict is %r", dict_params)
-            policy = self.client.create_policy(
-                vhost=vhost, policy_name=queue, **dict_params
-            )
-            sleep(self.wait_sleep)
-
-            if self.is_queue_running(vhost, queue):
-                log.info("Policy created and queue %r in running state", queue)
-        else:
+        if self.dry_run:
             log.info(
                 "It's a dry run mode: Policy body dict will be %r", dict_params
             )
+            return
+
+        log.info("Policy body dict is %r", dict_params)
+        policy = self.client.create_policy(
+            vhost=vhost, policy_name=queue, **dict_params
+        )
+        sleep(self.wait_sleep)
+
+        if self.is_queue_running(vhost, queue):
+            log.info("Policy created and queue %r in running state", queue)
+
         return policy
 
     def queues_on_hosts(self) -> List[Node]:
@@ -156,30 +158,28 @@ class RabbitData:
                     queues_on_host.append(
                         Queue(vhost=queue_vhost, name=queue_name)
                     )
-            log.info(
-                "Node '{}' has {} queues".format(
-                    node_name, len(queues_on_host)
-                )
-            )
+            log.info("Node %r has %d queues", node_name, len(queues_on_host))
             queues_on_host_list.append(
                 Node(node=node_name, queues=queues_on_host)
             )
         return queues_on_host_list
 
-    def queues_for_relocate(self):
+    @property
+    def queue_for_relocate(self):
         queues_on_hosts = self.queues_on_hosts()
         for group in self.policy_groups.values():
             calculated_queues = {}
-            for rabbit in self.queues_on_hosts():
+            for rabbit in queues_on_hosts:
                 if rabbit.node.split("@")[1] in group:
                     calculated_queues[rabbit.node] = len(rabbit.queues)
             min_queues_node = min(calculated_queues, key=calculated_queues.get)
             max_queues_node = max(calculated_queues, key=calculated_queues.get)
             log.info(
-                "Max queues on '{}'. Min queues on '{}'".format(
-                    max_queues_node, min_queues_node
-                )
+                "Max queues on node %r. Min queues on node %r",
+                max_queues_node,
+                min_queues_node,
             )
+
             if (
                 calculated_queues[max_queues_node]
                 - calculated_queues[min_queues_node]
@@ -193,44 +193,41 @@ class RabbitData:
                         return queue, vhost, min_queues_node
 
     def relocate_queue(self):
-        queue_data = self.queues_for_relocate()
-        if queue_data:
-            queue, vhost, min_queues_node = queue_data
-
-            definition_dict = {
-                "ha-mode": "nodes",
-                "ha-params": min_queues_node.split(" "),
-            }
-            dict_params = {
-                "pattern": "{}{}{}".format("^", escape(queue), "$"),
-                "definition": definition_dict,
-                "priority": 999,
-                "apply-to": "queues",
-            }
-            log.info(
-                "Relocate queue '{}'. Policy body dict is {}".format(
-                    queue, dict_params
-                )
-            )
-
-            if not self.dry_run:
-                self.client.create_policy(
-                    vhost=vhost,
-                    policy_name=QUEUE_BALANCER_POLICY_NAME,
-                    **dict_params
-                )
-                self.is_queue_running(vhost, queue)
-                self.client.queue_action(vhost, queue, action="sync")
-                self.is_queue_running(vhost, queue)
-                self.client.queue_action(vhost, queue, action="sync")
-                self.is_queue_running(vhost, queue)
-                log.info("Deleting relocate policy")
-                self.client.delete_policy(vhost, "queue_master_balancer")
-                self.is_queue_running(vhost, queue)
-                self.client.queue_action(vhost, queue, action="sync")
-                self.is_queue_running(vhost, queue)
-            else:
-                log.info("It's dry run. Nothing changed")
-
-        else:
+        queue_data = self.queue_for_relocate
+        if not queue_data:
             log.info("Nothing for balance")
+            return
+
+        queue, vhost, min_queues_node = queue_data
+
+        definition_dict = {
+            "ha-mode": "nodes",
+            "ha-params": min_queues_node.split(" "),
+        }
+        dict_params = {
+            "pattern": f"^{escape(queue)}$",
+            "definition": definition_dict,
+            "priority": 999,
+            "apply-to": "queues",
+        }
+        log.info(
+            "Relocate queue '%r'. Policy body dict is %r", queue, dict_params,
+        )
+
+        if self.dry_run:
+            log.info("It's dry run. Nothing changed")
+            return
+
+        self.client.create_policy(
+            vhost=vhost, policy_name=QUEUE_BALANCER_POLICY_NAME, **dict_params,
+        )
+        self.is_queue_running(vhost, queue)
+        self.client.queue_action(vhost, queue, action="sync")
+        self.is_queue_running(vhost, queue)
+        self.client.queue_action(vhost, queue, action="sync")
+        self.is_queue_running(vhost, queue)
+        log.info("Deleting relocate policy")
+        self.client.delete_policy(vhost, "queue_master_balancer")
+        self.is_queue_running(vhost, queue)
+        self.client.queue_action(vhost, queue, action="sync")
+        self.is_queue_running(vhost, queue)
