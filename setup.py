@@ -23,7 +23,10 @@ setup(
     description="Policymaker for RabbitMQ",
     platforms="all",
     packages=find_packages(),
-    install_requires=load_requirements("requirements.txt"),
+    install_requires=[
+        load_requirements("requirements.txt"),
+        "pyrabbit2 @ https://github.com/asteny/pyrabbit2/archive/master.zip",
+    ],
     extras_require={"develop": load_requirements("requirements.dev.txt")},
     python_requires=">=3.7",
     entry_points={

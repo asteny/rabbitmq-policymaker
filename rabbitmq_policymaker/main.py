@@ -3,14 +3,14 @@
 import json
 import logging
 import os
-from time import sleep
 
 from configargparse import ArgumentParser
 from prettylog import basic_config, LogFormat
 from pyrabbit2.api import Client
+from time import sleep
 from yarl import URL
 
-from rabbitmq_policymaker.rabbitmq_policy import RabbitData
+from rabbitmq_policymaker.rabbitmq_policy import RabbitInfo
 from rabbitmq_policymaker.wait_for_client import wait_for_client
 
 parser = ArgumentParser(
@@ -60,6 +60,22 @@ parser.add_argument(
     "--log-format", choices=LogFormat.choices(), default=LogFormat.stream
 )
 
+parser.add_argument(
+    "--manual-balancing",
+    action="store_true",
+    help="Balancing master queues into policy groups",
+)
+
+parser.add_argument(
+    "--queues-delta",
+    type=int,
+    default=3,
+    help=(
+        "If max queues on node - min queues on node > queues delta"
+        "start balancing queues"
+    ),
+)
+
 arguments = parser.parse_args()
 
 log = logging.getLogger()
@@ -77,24 +93,29 @@ def main():
     wait_for_client(client)
     log.debug("RabbitMQ alive")
 
-    rabbit_info = RabbitData(
-        client,
-        arguments.policy_groups,
-        arguments.dry_run,
-        arguments.wait_sleep,
+    rabbit_info = RabbitInfo(
+        client=client,
+        policy_groups=arguments.policy_groups,
+        dry_run=arguments.dry_run,
+        wait_sleep=arguments.wait_sleep,
+        queues_delta=arguments.queues_delta,
     )
+
+    if arguments.manual_balancing:
+        log.info("It's balancing mode")
+        rabbit_info.relocate_queue()
+        rabbit_info.queues_on_hosts()
+        return
 
     queues_without_policy = rabbit_info.queues_without_policy
 
-    if len(queues_without_policy) > 0:
+    if queues_without_policy:
         for queue in queues_without_policy:
             rabbit_info.create_policy(queue.vhost, queue.name)
+        log.info("Sleeping for %r seconds", arguments.sleep)
+        sleep(arguments.sleep)
     else:
         log.info("Nothing to do")
-
-    log.info("Queues on nodes: %r", rabbit_info.calculate_queues_on_hosts)
-    log.info("Sleeping for %r seconds", arguments.sleep)
-    sleep(arguments.sleep)
 
 
 if __name__ == "__main__":
