@@ -127,10 +127,11 @@ class RabbitInfo:
         policy = self.client.create_policy(
             vhost=vhost, policy_name=queue, **dict_params
         )
-        sleep(self.wait_sleep)
+        self.is_queue_running(vhost, queue)
+        self.client.queue_action(vhost, queue, action="sync")
+        self.is_queue_running(vhost, queue)
 
-        if self.is_queue_running(vhost, queue):
-            log.info("Policy created and queue %r in running state", queue)
+        log.info("Policy created and queue %r in running state", queue)
 
         return policy
 
