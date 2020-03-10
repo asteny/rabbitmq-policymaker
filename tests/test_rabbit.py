@@ -52,8 +52,8 @@ class MockRabbit:
             status=HTTPStatus.NOT_FOUND,
         )
 
-    def get_queue(self, vhost, queue):
-        return {"state": "running"}
+    def get_queue(self, vhost, name):
+        return {"state": "running", "policy": name}
 
     def create_policy(self, vhost, policy_name, **dict_params):
         return HTTPStatus.CREATED

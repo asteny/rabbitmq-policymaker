@@ -86,6 +86,18 @@ class RabbitInfo:
 
         return queues_list
 
+    def is_queue_has_policy(
+        self, vhost: str, queue: str, policy_name: str
+    ) -> bool:
+        policy = None
+        while policy != policy_name:
+            policy = self.client.get_queue(vhost=vhost, name=queue).get(
+                "policy"
+            )
+            log.info("Queue %r has policy %r", queue, policy)
+            if policy != policy_name:
+                sleep(self.wait_sleep)
+
     def is_queue_running(self, vhost: str, queue: str) -> bool:
         state = None
         while state != RUNNING:
@@ -127,9 +139,9 @@ class RabbitInfo:
         policy = self.client.create_policy(
             vhost=vhost, policy_name=queue, **dict_params
         )
-        self.is_queue_running(vhost, queue)
+        self.is_queue_has_policy(vhost=vhost, queue=queue, policy_name=queue)
         self.client.queue_action(vhost, queue, action="sync")
-        self.is_queue_running(vhost, queue)
+        self.is_queue_running(vhost=vhost, queue=queue)
 
         log.info("Policy created and queue %r in running state", queue)
 
@@ -222,13 +234,15 @@ class RabbitInfo:
         self.client.create_policy(
             vhost=vhost, policy_name=QUEUE_BALANCER_POLICY_NAME, **dict_params,
         )
-        self.is_queue_running(vhost, queue)
-        self.client.queue_action(vhost, queue, action="sync")
-        self.is_queue_running(vhost, queue)
+        self.is_queue_has_policy(
+            vhost=vhost, queue=queue, policy_name=QUEUE_BALANCER_POLICY_NAME
+        )
         self.client.queue_action(vhost, queue, action="sync")
         self.is_queue_running(vhost, queue)
         log.info("Deleting relocate policy")
-        self.client.delete_policy(vhost, "queue_master_balancer")
-        self.is_queue_running(vhost, queue)
+        self.client.delete_policy(
+            vhost=vhost, policy_name=QUEUE_BALANCER_POLICY_NAME
+        )
         self.client.queue_action(vhost, queue, action="sync")
+        self.is_queue_has_policy(vhost=vhost, queue=queue, policy_name=queue)
         self.is_queue_running(vhost, queue)
