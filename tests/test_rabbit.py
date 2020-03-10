@@ -58,6 +58,9 @@ class MockRabbit:
     def create_policy(self, vhost, policy_name, **dict_params):
         return HTTPStatus.CREATED
 
+    def queue_action(self, vhost, queue, action):
+        return HTTPStatus.OK
+
 
 @pytest.mark.parametrize(
     "queues,expected",
