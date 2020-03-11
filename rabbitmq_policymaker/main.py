@@ -112,10 +112,11 @@ def main():
     if queues_without_policy:
         for queue in queues_without_policy:
             rabbit_info.create_policy(queue.vhost, queue.name)
-        log.info("Sleeping for %r seconds", arguments.sleep)
-        sleep(arguments.sleep)
     else:
         log.info("Nothing to do")
+
+    log.info("Sleeping for %r seconds", arguments.sleep)
+    sleep(arguments.sleep)
 
 
 if __name__ == "__main__":
