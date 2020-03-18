@@ -121,6 +121,7 @@ class RabbitInfo:
             "ha-mode": "nodes",
             "ha-params": rabbit_nodes,
             "queue-mode": "lazy",
+            "ha-sync-mode": "automatic",
         }
         dict_params = {
             "pattern": f"^{escape(queue)}$",
