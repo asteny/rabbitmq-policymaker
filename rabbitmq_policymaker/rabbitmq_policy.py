@@ -217,6 +217,7 @@ class RabbitInfo:
         definition_dict = {
             "ha-mode": "nodes",
             "ha-params": min_queues_node.split(" "),
+            "ha-sync-mode": "automatic",
         }
         dict_params = {
             "pattern": f"^{escape(queue)}$",
