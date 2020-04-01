@@ -1,5 +1,6 @@
 rabbitmq-policymaker
 ===========
+![Run tests](https://github.com/asteny/rabbitmq-policymaker/workflows/Run%20tests/badge.svg)
 
 TODO: Write description
 
