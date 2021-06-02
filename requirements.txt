@@ -8,5 +8,5 @@ multidict==4.7.5
 prettylog==0.3.0
 requests==2.23.0
 ujson==1.35
-urllib3==1.25.8
+urllib3==1.26.5
 yarl==1.4.2
